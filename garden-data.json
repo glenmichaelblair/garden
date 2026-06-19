@@ -392,7 +392,7 @@
       ],
       "nav_hotspots": [
         {
-          "target": "06",
+          "target": "08",
           "angle": 190,
           "hotspot": {
             "x": 15,
@@ -405,6 +405,14 @@
           "hotspot": {
             "x": 77,
             "y": 80
+          }
+        },
+        {
+          "target": "06",
+          "style": "dot",
+          "hotspot": {
+            "x": 20,
+            "y": 90
           }
         }
       ]

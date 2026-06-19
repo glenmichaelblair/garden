@@ -96,7 +96,7 @@
           ref: s.hotspot, type: 'sub_zone', name: s.name,
           id: { kind: 'sub', zoneId: z.id, index: i } }); });
         (z.nav_hotspots || []).forEach(n => { if (n.hotspot) {
-          if (n.angle == null) n.angle = 0;
+          if (n.style !== 'dot' && n.angle == null) n.angle = 0;
           const t = zoneById(n.target);
           dots.push({ ref: n.hotspot, type: 'nav', name: '→ ' + (n.label || (t ? t.name : n.target)),
             id: { kind: 'nav', zoneId: z.id, target: n.target }, navObj: n }); } });
@@ -122,7 +122,7 @@
         dot.className = 'dot';
         dot.style.background = color;
         place(dot, d.ref);
-        if (d.type === 'nav') {
+        if (d.type === 'nav' && d.navObj.style !== 'dot') {
           const g = document.createElement('span');
           g.className = 'na'; g.textContent = '→';
           g.style.transform = `rotate(${d.navObj.angle || 0}deg)`;
@@ -167,7 +167,7 @@
       allHandles.forEach(o => { o.dot.classList.remove('sel'); o.row.classList.remove('active'); });
       h.dot.classList.add('sel'); h.row.classList.add('active'); selected = h;
       const rb = document.getElementById('rotbar');
-      if (h.type === 'nav') {
+      if (h.type === 'nav' && h.navObj.style !== 'dot') {
         rb.style.display = 'flex';
         const a = h.navObj.angle || 0;
         document.getElementById('rotRange').value = a;
@@ -201,7 +201,8 @@
     function clamp(v) { return Math.max(0, Math.min(100, isNaN(v) ? 0 : v)); }
     function readout(h) {
       const base = `${h.name}: ${h.ref.x}, ${h.ref.y}`;
-      document.getElementById('readout').textContent = h.type === 'nav' ? `${base} · ${h.navObj.angle || 0}°` : base;
+      const isArrow = h.type === 'nav' && h.navObj.style !== 'dot';
+      document.getElementById('readout').textContent = isArrow ? `${base} · ${h.navObj.angle || 0}°` : base;
     }
 
     document.getElementById('btn-download').addEventListener('click', () => {
@@ -216,7 +217,9 @@
         if (id.kind === 'landing') return `landing ${id.zoneId} -> ${h.ref.x},${h.ref.y}`;
         if (id.kind === 'plant')   return `plant ${id.zoneId} ${id.plantId} -> ${h.ref.x},${h.ref.y}`;
         if (id.kind === 'sub')     return `sub ${id.zoneId} #${id.index} (${h.name}) -> ${h.ref.x},${h.ref.y}`;
-        if (id.kind === 'nav')     return `nav ${id.zoneId} ${id.target} -> ${h.ref.x},${h.ref.y} @${h.navObj.angle || 0}`;
+        if (id.kind === 'nav')     return (h.navObj.style === 'dot')
+          ? `nav ${id.zoneId} ${id.target} -> ${h.ref.x},${h.ref.y}`
+          : `nav ${id.zoneId} ${id.target} -> ${h.ref.x},${h.ref.y} @${h.navObj.angle || 0}`;
       });
       const text = 'HOTSPOTS\n' + lines.join('\n');
       try { await navigator.clipboard.writeText(text); document.getElementById('readout').textContent = 'copied ' + lines.length + ' coords'; }

@@ -107,19 +107,24 @@
       const hotspotsEl = document.getElementById('hotspots');
       const list = document.getElementById('plant-list');
 
-      // Nav arrows: signposts pointing to other sections (shown on hubs and normal zones alike)
+      // Nav hotspots: signposts to other sections — arrows (with rotation) or simple labeled dots
       (zone.nav_hotspots || []).forEach(nav => {
         if (!nav.hotspot) return;
         const target = getZone(data, nav.target);
-        const angle = (nav.angle != null) ? nav.angle : 0;
+        const label = nav.label || (target ? target.name : nav.target);
         const a = document.createElement('a');
-        a.className = 'nav-arrow';
         a.href = `zone.html?zone=${nav.target}`;
         a.style.left = nav.hotspot.x + '%';
         a.style.top  = nav.hotspot.y + '%';
-        const label = nav.label || (target ? target.name : nav.target);
-        a.innerHTML = `<span class="arrow-glyph" style="transform:rotate(${angle}deg)">→</span><span class="arrow-label">${label}</span>`;
-        if (DEV_MODE) { a.classList.add('dev'); a.title = `${label}: ${nav.hotspot.x},${nav.hotspot.y} @${angle}°`; }
+        if (nav.style === 'dot') {
+          a.className = 'landing-zone-dot';
+          a.innerHTML = `<span class="zone-dot-pip"></span><span class="zone-dot-label">${label}</span>`;
+        } else {
+          const angle = (nav.angle != null) ? nav.angle : 0;
+          a.className = 'nav-arrow';
+          a.innerHTML = `<span class="arrow-glyph" style="transform:rotate(${angle}deg)">→</span><span class="arrow-label">${label}</span>`;
+        }
+        if (DEV_MODE) { a.classList.add('dev'); a.title = `${label}: ${nav.hotspot.x},${nav.hotspot.y}`; }
         hotspotsEl.appendChild(a);
       });
 
