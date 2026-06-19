@@ -69,18 +69,18 @@
       "nav_hotspots": [
         {
           "target": "03",
-          "angle": 180,
+          "angle": 190,
           "hotspot": {
-            "x": 12,
-            "y": 88
+            "x": 54,
+            "y": 54
           }
         },
         {
           "target": "10",
-          "angle": 0,
+          "angle": 15,
           "hotspot": {
-            "x": 88,
-            "y": 88
+            "x": 92,
+            "y": 78
           }
         }
       ]
@@ -393,18 +393,18 @@
       "nav_hotspots": [
         {
           "target": "06",
-          "angle": 180,
+          "angle": 190,
           "hotspot": {
-            "x": 10,
-            "y": 77
+            "x": 15,
+            "y": 71
           }
         },
         {
           "target": "04",
-          "angle": 0,
+          "angle": 35,
           "hotspot": {
-            "x": 80,
-            "y": 87
+            "x": 77,
+            "y": 80
           }
         }
       ]
@@ -694,7 +694,7 @@
       "nav_hotspots": [
         {
           "target": "04",
-          "angle": 180,
+          "angle": 125,
           "hotspot": {
             "x": 12,
             "y": 90
@@ -702,10 +702,10 @@
         },
         {
           "target": "08",
-          "angle": 0,
+          "angle": 35,
           "hotspot": {
-            "x": 88,
-            "y": 90
+            "x": 91,
+            "y": 86
           }
         }
       ]
@@ -758,18 +758,18 @@
       "nav_hotspots": [
         {
           "target": "05",
-          "angle": 180,
+          "angle": 45,
           "hotspot": {
-            "x": 12,
-            "y": 12
+            "x": 94,
+            "y": 76
           }
         },
         {
           "target": "07",
-          "angle": 0,
+          "angle": 135,
           "hotspot": {
-            "x": 88,
-            "y": 12
+            "x": 6,
+            "y": 86
           }
         }
       ]
@@ -1084,10 +1084,10 @@
       "nav_hotspots": [
         {
           "target": "06",
-          "angle": 0,
+          "angle": 30,
           "hotspot": {
-            "x": 85,
-            "y": 90
+            "x": 81,
+            "y": 83
           }
         }
       ]
