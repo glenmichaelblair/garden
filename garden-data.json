@@ -228,8 +228,8 @@
       "slug": "blueberry-corner",
       "name": "Blueberry Corner",
       "landing_hotspot": {
-        "x": 22,
-        "y": 32
+        "x": 50,
+        "y": 35
       },
       "description": "Two pink blueberry plants in matching teal pots — one a standout, one a comeback story.",
       "overview_photo": "04-blueberry-corner-overview.JPG",
@@ -289,8 +289,8 @@
       "slug": "thailand-bed",
       "name": "Thailand Bed",
       "landing_hotspot": {
-        "x": 40,
-        "y": 52
+        "x": 15,
+        "y": 50
       },
       "description": "A raised bed of Thai staples and companion plants — the spice corridor of the garden.",
       "overview_photo": "05-thailand-bed-overview.JPG",
@@ -527,8 +527,8 @@
       "slug": "basil-bed",
       "name": "Basil Bed",
       "landing_hotspot": {
-        "x": 62,
-        "y": 45
+        "x": 72,
+        "y": 50
       },
       "description": "The garden's aromatic heart — multiple basil varieties, a standout pepper, and marigold sentinels.",
       "overview_photo": "07-basil-bed-overview.JPG",
@@ -541,8 +541,8 @@
             "07-basil-bed-thai-basil.JPG"
           ],
           "hotspot": {
-            "x": 50,
-            "y": 28
+            "x": 52,
+            "y": 44
           },
           "highlights": [
             "The healthier of the two Thai basils — outperforming Thai Basil A in Zone 05.",
@@ -589,8 +589,8 @@
             "07-basil-bed-generic-basil-02.JPG"
           ],
           "hotspot": {
-            "x": 52,
-            "y": 44
+            "x": 50,
+            "y": 28
           },
           "highlights": [
             "A longtime resident — second only to Generic Basil #1 in seniority.",
@@ -705,8 +705,8 @@
       "slug": "terracotta-row",
       "name": "Terracotta Row",
       "landing_hotspot": {
-        "x": 78,
-        "y": 65
+        "x": 50,
+        "y": 72
       },
       "description": "The iridescent tile table and everything clustered around it. Tap an area to go deeper — the table itself, the friends on the ground below, or the seedling nursery underneath.",
       "overview_photo": "08-terracotta-row-full-overview-zoomed-out.JPG",
@@ -898,8 +898,8 @@
             "08-terracotta-row-thyme.JPG"
           ],
           "hotspot": {
-            "x": 75,
-            "y": 70
+            "x": 63,
+            "y": 60
           },
           "highlights": [
             "Slow but steady — lower right of the terracotta table.",
@@ -922,8 +922,8 @@
             "08-terracotta-row-mint.JPG"
           ],
           "hotspot": {
-            "x": 63,
-            "y": 60
+            "x": 75,
+            "y": 70
           },
           "highlights": [
             "Added after the initial garden inventory — a newer addition to the terracotta table.",

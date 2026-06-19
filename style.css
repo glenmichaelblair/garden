@@ -138,7 +138,7 @@ ul { list-style: none; }
 .front-yard-container {
   position: absolute;
   bottom: 1rem;
-  right: 1rem;
+  left: 1rem;
 }
 
 .front-yard-btn {
@@ -167,7 +167,7 @@ ul { list-style: none; }
   display: none;
   position: absolute;
   bottom: calc(100% + 8px);
-  right: 0;
+  left: 0;
   background: #fff;
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
