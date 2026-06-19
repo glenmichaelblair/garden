@@ -316,9 +316,7 @@ ul { list-style: none; }
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
 }
-.nav-arrow .arrow-glyph { font-size: 1.05rem; line-height: 1; }
-.nav-arrow.dir-left { flex-direction: row; }
-.nav-arrow.dir-right { flex-direction: row-reverse; }
+.nav-arrow .arrow-glyph { font-size: 1.1rem; line-height: 1; display: inline-block; }
 .nav-arrow:active { background: var(--green-mid); }
 .nav-arrow.dev { outline: 2px dashed #f0c14b; outline-offset: 2px; }
 

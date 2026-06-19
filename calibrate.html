@@ -16,14 +16,23 @@
     .legend { display: flex; gap: .8rem; font-size: .72rem; margin-top: .45rem; flex-wrap: wrap; }
     .legend span { display: inline-flex; align-items: center; gap: .3rem; }
     .swatch { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 2px solid #fff; }
+    /* rotation dial — shown only when a nav arrow is selected */
+    .rotbar { display: none; align-items: center; gap: .4rem; margin-top: .55rem; background: rgba(255,255,255,.12); padding: .4rem .55rem; border-radius: 8px; flex-wrap: wrap; }
+    .rotbar span.lbl { font-size: .75rem; font-weight: 600; }
+    .rotbar button { width: 30px; height: 30px; border: 0; border-radius: 6px; background: #c8d5b9; color: #2d4a1e; font-size: 1rem; font-weight: 700; cursor: pointer; }
+    .rotbar input[type=range] { flex: 1; min-width: 120px; accent-color: #f0c14b; }
+    .rotbar input[type=number] { width: 3.6rem; padding: .25rem; border-radius: 4px; border: 0; text-align: center; }
+    .rotbar .deg { font-size: .8rem; min-width: 2.6rem; text-align: right; font-variant-numeric: tabular-nums; }
     .block { background: #fff; margin: 1rem; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
     .block-title { padding: .6rem .9rem; font-weight: 600; font-size: .9rem; background: #ede6d6; }
     .img-wrap { position: relative; width: 100%; touch-action: none; user-select: none; -webkit-user-select: none; }
     .img-wrap img { display: block; width: 100%; height: auto; }
-    .dot { position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%;
+    .dot { position: absolute; transform: translate(-50%, -50%); width: 32px; height: 32px; border-radius: 50%;
            border: 2.5px solid #fff; display: flex; align-items: center; justify-content: center;
            color: #fff; font-size: 13px; font-weight: 700; cursor: grab; box-shadow: 0 1px 5px rgba(0,0,0,.45); touch-action: none; }
     .dot.sel { outline: 3px solid #f0c14b; outline-offset: 2px; z-index: 10; }
+    .dot .na { display: inline-block; font-size: 17px; line-height: 1; }
+    .dot .badge { position: absolute; top: -7px; right: -7px; background: #222; color: #fff; font-size: 10px; width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #fff; }
     table { width: 100%; border-collapse: collapse; font-size: .8rem; }
     th, td { padding: .35rem .5rem; border-bottom: 1px solid #eee; text-align: left; }
     th { background: #faf7f0; font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; color: #777; }
@@ -41,11 +50,21 @@
       <button id="btn-copy">📋 Copy coordinates</button>
       <span class="readout" id="readout">drag a dot</span>
     </div>
+    <div class="rotbar" id="rotbar">
+      <span class="lbl">Rotate arrow:</span>
+      <button data-a="180" title="left">←</button>
+      <button data-a="270" title="up">↑</button>
+      <button data-a="0" title="right">→</button>
+      <button data-a="90" title="down">↓</button>
+      <input type="range" id="rotRange" min="0" max="359" step="5" value="0">
+      <input type="number" id="rotNum" min="0" max="359" step="5" value="0">
+      <span class="deg" id="rotVal">0°</span>
+    </div>
     <div class="legend">
       <span><i class="swatch" style="background:#7a3aa0"></i>landing</span>
       <span><i class="swatch" style="background:#4a7a3a"></i>plant</span>
       <span><i class="swatch" style="background:#2f6fb0"></i>area</span>
-      <span><i class="swatch" style="background:#c47c2b"></i>nav</span>
+      <span><i class="swatch" style="background:#c47c2b"></i>nav arrow</span>
     </div>
   </header>
 
@@ -62,16 +81,12 @@
       const root = document.getElementById('sections');
       const zoneById = id => DATA.zones.find(z => z.id === id);
 
-      // Landing / hero — landing_hotspots live on zones but sit on the hero photo
       const hero = zoneById('01');
       const landingDots = DATA.zones.filter(z => z.landing_hotspot).map(z => ({
-        ref: z.landing_hotspot, type: 'landing',
-        name: z.landing_label || z.name,
-        id: { kind: 'landing', zoneId: z.id }
-      }));
+        ref: z.landing_hotspot, type: 'landing', name: z.landing_label || z.name,
+        id: { kind: 'landing', zoneId: z.id } }));
       if (hero) root.appendChild(block('Landing / Hero', hero.overview_photo, landingDots));
 
-      // Each zone overview with its plant / area / nav dots
       DATA.zones.forEach(z => {
         const dots = [];
         (z.plants || []).forEach(p => { if (p.hotspot) dots.push({
@@ -81,9 +96,10 @@
           ref: s.hotspot, type: 'sub_zone', name: s.name,
           id: { kind: 'sub', zoneId: z.id, index: i } }); });
         (z.nav_hotspots || []).forEach(n => { if (n.hotspot) {
+          if (n.angle == null) n.angle = 0;
           const t = zoneById(n.target);
           dots.push({ ref: n.hotspot, type: 'nav', name: '→ ' + (n.label || (t ? t.name : n.target)),
-            id: { kind: 'nav', zoneId: z.id, target: n.target } }); } });
+            id: { kind: 'nav', zoneId: z.id, target: n.target }, navObj: n }); } });
         if (dots.length) root.appendChild(block(`Zone ${z.id} — ${z.name}`, z.overview_photo, dots));
       });
     }
@@ -92,7 +108,7 @@
       const el = document.createElement('div');
       el.className = 'block';
       el.innerHTML = `<div class="block-title">${title}</div>
-        <div class="hint">Drag a dot, or tap a dot then tap the photo to place it. Fine-tune with the number boxes.</div>
+        <div class="hint">Drag a dot, or tap a dot then tap the photo to place it. Select a nav arrow to rotate it (dial up top).</div>
         <div class="img-wrap"><img src="${getPhotoUrl(photo)}" alt="${title}"></div>
         <table><thead><tr><th>#</th><th>Type</th><th>Name</th><th>X%</th><th>Y%</th></tr></thead><tbody></tbody></table>`;
       const wrap = el.querySelector('.img-wrap');
@@ -105,8 +121,18 @@
         const dot = document.createElement('div');
         dot.className = 'dot';
         dot.style.background = color;
-        dot.textContent = n;
         place(dot, d.ref);
+        if (d.type === 'nav') {
+          const g = document.createElement('span');
+          g.className = 'na'; g.textContent = '→';
+          g.style.transform = `rotate(${d.navObj.angle || 0}deg)`;
+          const badge = document.createElement('span');
+          badge.className = 'badge'; badge.textContent = n;
+          dot.appendChild(g); dot.appendChild(badge);
+          d.glyph = g;
+        } else {
+          dot.textContent = n;
+        }
         wrap.appendChild(dot);
 
         const row = document.createElement('tr');
@@ -117,35 +143,53 @@
         const [xIn, yIn] = row.querySelectorAll('input');
         tbody.appendChild(row);
 
-        const h = { ...d, dot, row, xIn, yIn, wrap, n };
+        const h = Object.assign(d, { dot, row, xIn, yIn, wrap, n });
         allHandles.push(h);
 
-        const selectThis = () => {
-          allHandles.forEach(o => { o.dot.classList.remove('sel'); o.row.classList.remove('active'); });
-          dot.classList.add('sel'); row.classList.add('active'); selected = h;
-          readout(h);
-        };
-
-        // drag
         dot.addEventListener('pointerdown', e => {
-          e.preventDefault(); selectThis();
+          e.preventDefault(); selectHandle(h);
           const move = ev => setFromEvent(h, ev);
           const up = () => { document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', up); };
           document.addEventListener('pointermove', move); document.addEventListener('pointerup', up);
         });
-        // number inputs
         xIn.addEventListener('input', () => { d.ref.x = clamp(+xIn.value); place(dot, d.ref); readout(h); });
         yIn.addEventListener('input', () => { d.ref.y = clamp(+yIn.value); place(dot, d.ref); readout(h); });
       });
 
-      // tap empty image area to move the selected dot here
       wrap.addEventListener('pointerdown', e => {
-        if (e.target.classList.contains('dot')) return;
+        if (e.target.closest('.dot')) return;
         if (selected && selected.wrap === wrap) setFromEvent(selected, e);
       });
-
       return el;
     }
+
+    function selectHandle(h) {
+      allHandles.forEach(o => { o.dot.classList.remove('sel'); o.row.classList.remove('active'); });
+      h.dot.classList.add('sel'); h.row.classList.add('active'); selected = h;
+      const rb = document.getElementById('rotbar');
+      if (h.type === 'nav') {
+        rb.style.display = 'flex';
+        const a = h.navObj.angle || 0;
+        document.getElementById('rotRange').value = a;
+        document.getElementById('rotNum').value = a;
+        document.getElementById('rotVal').textContent = a + '°';
+      } else { rb.style.display = 'none'; }
+      readout(h);
+    }
+
+    function setAngle(v) {
+      if (!selected || selected.type !== 'nav') return;
+      v = ((Math.round(+v) % 360) + 360) % 360;
+      selected.navObj.angle = v;
+      if (selected.glyph) selected.glyph.style.transform = `rotate(${v}deg)`;
+      document.getElementById('rotRange').value = v;
+      document.getElementById('rotNum').value = v;
+      document.getElementById('rotVal').textContent = v + '°';
+      readout(selected);
+    }
+    document.getElementById('rotRange').addEventListener('input', e => setAngle(e.target.value));
+    document.getElementById('rotNum').addEventListener('input', e => setAngle(e.target.value));
+    document.querySelectorAll('.rotbar button').forEach(b => b.addEventListener('click', () => setAngle(b.dataset.a)));
 
     function setFromEvent(h, ev) {
       const r = h.wrap.getBoundingClientRect();
@@ -155,23 +199,24 @@
     }
     function place(dot, ref) { dot.style.left = ref.x + '%'; dot.style.top = ref.y + '%'; }
     function clamp(v) { return Math.max(0, Math.min(100, isNaN(v) ? 0 : v)); }
-    function readout(h) { document.getElementById('readout').textContent = `${h.name}: ${h.ref.x}, ${h.ref.y}`; }
+    function readout(h) {
+      const base = `${h.name}: ${h.ref.x}, ${h.ref.y}`;
+      document.getElementById('readout').textContent = h.type === 'nav' ? `${base} · ${h.navObj.angle || 0}°` : base;
+    }
 
-    // Export full updated data file
     document.getElementById('btn-download').addEventListener('click', () => {
       const blob = new Blob([JSON.stringify(DATA, null, 2) + '\n'], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob); a.download = 'garden-data.json'; a.click();
     });
 
-    // Export a compact, paste-back summary
     document.getElementById('btn-copy').addEventListener('click', async () => {
       const lines = allHandles.map(h => {
         const id = h.id;
         if (id.kind === 'landing') return `landing ${id.zoneId} -> ${h.ref.x},${h.ref.y}`;
         if (id.kind === 'plant')   return `plant ${id.zoneId} ${id.plantId} -> ${h.ref.x},${h.ref.y}`;
         if (id.kind === 'sub')     return `sub ${id.zoneId} #${id.index} (${h.name}) -> ${h.ref.x},${h.ref.y}`;
-        if (id.kind === 'nav')     return `nav ${id.zoneId} ${id.target} -> ${h.ref.x},${h.ref.y}`;
+        if (id.kind === 'nav')     return `nav ${id.zoneId} ${id.target} -> ${h.ref.x},${h.ref.y} @${h.navObj.angle || 0}`;
       });
       const text = 'HOTSPOTS\n' + lines.join('\n');
       try { await navigator.clipboard.writeText(text); document.getElementById('readout').textContent = 'copied ' + lines.length + ' coords'; }

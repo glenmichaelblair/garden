@@ -108,19 +108,18 @@
       const list = document.getElementById('plant-list');
 
       // Nav arrows: signposts pointing to other sections (shown on hubs and normal zones alike)
-      const ARROW_GLYPH = { left: '←', right: '→', up: '↑', down: '↓' };
       (zone.nav_hotspots || []).forEach(nav => {
         if (!nav.hotspot) return;
         const target = getZone(data, nav.target);
-        const dir = nav.arrow || 'right';
+        const angle = (nav.angle != null) ? nav.angle : 0;
         const a = document.createElement('a');
-        a.className = 'nav-arrow dir-' + dir;
+        a.className = 'nav-arrow';
         a.href = `zone.html?zone=${nav.target}`;
         a.style.left = nav.hotspot.x + '%';
         a.style.top  = nav.hotspot.y + '%';
         const label = nav.label || (target ? target.name : nav.target);
-        a.innerHTML = `<span class="arrow-glyph">${ARROW_GLYPH[dir] || '→'}</span><span class="arrow-label">${label}</span>`;
-        if (DEV_MODE) { a.classList.add('dev'); a.title = `${label}: x=${nav.hotspot.x} y=${nav.hotspot.y}`; }
+        a.innerHTML = `<span class="arrow-glyph" style="transform:rotate(${angle}deg)">→</span><span class="arrow-label">${label}</span>`;
+        if (DEV_MODE) { a.classList.add('dev'); a.title = `${label}: ${nav.hotspot.x},${nav.hotspot.y} @${angle}°`; }
         hotspotsEl.appendChild(a);
       });
 
