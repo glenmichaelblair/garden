@@ -8,13 +8,21 @@
 </head>
 <body class="zone-page">
 
-  <header class="page-header">
-    <a href="index.html" class="back-link">← Garden</a>
+  <!-- Standard header (backyard zones) -->
+  <header class="page-header" id="page-header">
+    <a href="index.html" class="back-link" id="back-link">↓ Garden</a>
     <div class="header-title">
-      <span id="zone-number" class="zone-number-label"></span>
+      <span id="zone-number-label" class="zone-number-label"></span>
       <h1 id="zone-name"></h1>
     </div>
   </header>
+
+  <!-- Front yard lateral nav (shown only for front-yard zones) -->
+  <nav class="lateral-nav" id="lateral-nav" aria-label="Front yard zones">
+    <a id="lateral-prev" class="lateral-btn lateral-prev" href="#">←</a>
+    <a href="index.html" class="lateral-home">↓ Garden</a>
+    <a id="lateral-next" class="lateral-btn lateral-next" href="#">→</a>
+  </nav>
 
   <main>
     <p id="zone-description" class="zone-description"></p>
@@ -29,7 +37,7 @@
     <div id="plant-list" class="plant-list"></div>
   </main>
 
-  <!-- Plant drawer (slides up on hotspot tap) -->
+  <!-- Plant drawer -->
   <div id="plant-drawer" class="plant-drawer" aria-hidden="true">
     <div class="drawer-handle" id="drawer-handle"></div>
     <div class="drawer-content" id="drawer-content"></div>
@@ -56,6 +64,38 @@
       img.src = getPhotoUrl(zone.overview_photo);
       img.alt = zone.name + ' overview';
 
+      // Front yard zones: show lateral nav, hide standard back link
+      if (zone.front_yard) {
+        document.getElementById('page-header').style.display = 'none';
+        const lateralNav = document.getElementById('lateral-nav');
+        lateralNav.style.display = 'flex';
+
+        const frontYardZones = data.zones
+          .filter(z => z.front_yard)
+          .sort((a, b) => a.front_yard_order - b.front_yard_order);
+
+        const idx = frontYardZones.findIndex(z => z.id === zone.id);
+        const prevZone = frontYardZones[idx - 1];
+        const nextZone = frontYardZones[idx + 1];
+
+        const prevBtn = document.getElementById('lateral-prev');
+        const nextBtn = document.getElementById('lateral-next');
+
+        if (prevZone) {
+          prevBtn.href = `zone.html?zone=${prevZone.id}`;
+          prevBtn.innerHTML = `← ${prevZone.name}`;
+        } else {
+          prevBtn.classList.add('hidden');
+        }
+
+        if (nextZone) {
+          nextBtn.href = `zone.html?zone=${nextZone.id}`;
+          nextBtn.innerHTML = `${nextZone.name} →`;
+        } else {
+          nextBtn.classList.add('hidden');
+        }
+      }
+
       // Hotspot dots
       const hotspotsEl = document.getElementById('hotspots');
       zone.plants.forEach(plant => {
@@ -65,16 +105,15 @@
         dot.style.left = plant.hotspot.x + '%';
         dot.style.top  = plant.hotspot.y + '%';
         dot.setAttribute('aria-label', plant.name);
-        dot.setAttribute('data-plant-id', plant.id);
 
         if (DEV_MODE) {
-          const label = document.createElement('span');
-          label.className = 'hotspot-dev-label';
-          label.textContent = `${plant.name} (${plant.hotspot.x},${plant.hotspot.y})`;
-          dot.appendChild(label);
+          const lbl = document.createElement('span');
+          lbl.className = 'hotspot-dev-label';
+          lbl.textContent = `${plant.name} (${plant.hotspot.x},${plant.hotspot.y})`;
+          dot.appendChild(lbl);
         }
 
-        dot.addEventListener('click', () => openDrawer(plant));
+        dot.addEventListener('click', () => openDrawer(plant, zone));
         hotspotsEl.appendChild(dot);
       });
 
@@ -103,7 +142,7 @@
       }
     }
 
-    function openDrawer(plant) {
+    function openDrawer(plant, zone) {
       const drawer = document.getElementById('plant-drawer');
       const content = document.getElementById('drawer-content');
       const backdrop = document.getElementById('drawer-backdrop');
@@ -115,7 +154,7 @@
         </div>
         <img class="drawer-thumb" src="${getPhotoUrl(plant.photos[0])}" alt="${plant.name}" />
         <p class="drawer-highlight">${plant.highlights[0] || ''}</p>
-        <a class="drawer-full-link" href="plant.html?zone=${getParam('zone')}&plant=${plant.id}">
+        <a class="drawer-full-link" href="plant.html?zone=${zone.id}&plant=${plant.id}">
           Full profile →
         </a>
       `;
@@ -126,11 +165,9 @@
     }
 
     function closeDrawer() {
-      const drawer = document.getElementById('plant-drawer');
-      const backdrop = document.getElementById('drawer-backdrop');
-      drawer.classList.remove('open');
-      drawer.setAttribute('aria-hidden', 'true');
-      backdrop.classList.remove('visible');
+      document.getElementById('plant-drawer').classList.remove('open');
+      document.getElementById('plant-drawer').setAttribute('aria-hidden', 'true');
+      document.getElementById('drawer-backdrop').classList.remove('visible');
     }
 
     document.getElementById('drawer-backdrop').addEventListener('click', closeDrawer);

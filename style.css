@@ -29,28 +29,170 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
+.hidden { display: none !important; }
 
-/* ── Header ────────────────────────────────────────────────────────────── */
-.garden-header {
+/* ── Landing page ──────────────────────────────────────────────────────── */
+.landing-page {
+  background: #000;
+}
+
+/* Hero image: full-width, natural aspect ratio, no cropping */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Garden title overlay — top of hero image */
+.landing-title-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.25rem 2rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.landing-title-overlay h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+/* ── Landing zone dots ─────────────────────────────────────────────────── */
+#landing-hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.landing-zone-dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  pointer-events: all;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.zone-dot-pip {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  border: 2.5px solid var(--green-dark);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  position: relative;
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.zone-dot-pip::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--green-dark);
+}
+
+.landing-zone-dot:active .zone-dot-pip {
+  transform: scale(1.25);
+}
+
+.zone-dot-label {
+  display: block;
+  background: rgba(255,255,255,0.92);
+  color: var(--green-dark);
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+/* Dev mode: make dots more obvious during calibration */
+.landing-zone-dot.dev .zone-dot-pip {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 100, 0, 0.85);
+  border-color: #fff;
+}
+
+/* ── Front Yard dropdown ───────────────────────────────────────────────── */
+.front-yard-container {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.front-yard-btn {
   background: var(--green-dark);
   color: #fff;
-  text-align: center;
-  padding: 2rem 1.5rem 1.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-.garden-header h1 {
-  font-size: 2rem;
-  letter-spacing: 0.02em;
-  font-weight: normal;
+.fy-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.15s;
 }
 
-.tagline {
-  color: var(--green-light);
-  font-size: 0.95rem;
-  margin-top: 0.35rem;
-  font-style: italic;
+.front-yard-menu {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  min-width: 160px;
+  overflow: hidden;
 }
 
+.front-yard-menu.open {
+  display: block;
+}
+
+.fy-menu-item {
+  display: block;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--cream-dark);
+  transition: background 0.12s;
+}
+
+.fy-menu-item:last-child { border-bottom: none; }
+.fy-menu-item:active { background: var(--cream); }
+
+/* ── Zone page header ──────────────────────────────────────────────────── */
 .page-header {
   background: var(--green-dark);
   color: #fff;
@@ -93,79 +235,45 @@ ul { list-style: none; }
   margin-bottom: 0.1rem;
 }
 
-/* ── Landing — hero ────────────────────────────────────────────────────── */
-.hero-wrapper {
-  position: relative;
-  width: 100%;
+/* ── Lateral nav (front yard zones) ───────────────────────────────────── */
+.lateral-nav {
+  display: none; /* shown by JS for front-yard zones */
   background: var(--green-dark);
+  color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 0.5rem;
 }
 
-.hero-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ── Landing — zone grid ───────────────────────────────────────────────── */
-.zone-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.zone-card {
-  display: flex;
-  align-items: stretch;
-  background: #fff;
-  border-bottom: 1px solid var(--cream-dark);
-  transition: background 0.15s;
-}
-
-.zone-card:active { background: var(--cream); }
-
-.zone-card-img-wrap {
-  width: 110px;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.zone-card-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.zone-card-info {
-  padding: 0.85rem 1rem;
-  flex: 1;
-  min-width: 0;
-}
-
-.zone-number {
+.lateral-btn {
+  color: var(--green-light);
   font-family: var(--font-ui);
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  flex: 1;
 }
 
-.zone-card-info h2 {
-  font-size: 1rem;
-  font-weight: normal;
-  margin: 0.15rem 0 0.3rem;
+.lateral-prev { text-align: left; }
+.lateral-next { text-align: right; }
+
+.lateral-btn:hover { color: #fff; }
+
+.lateral-home {
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  text-align: center;
+  opacity: 0.85;
 }
 
-.zone-card-info p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+.lateral-home:hover { opacity: 1; }
 
-/* ── Zone page ─────────────────────────────────────────────────────────── */
+/* ── Zone image (critical: no cropping, hotspots stay accurate) ────────── */
 .zone-description {
   padding: 1rem 1.25rem 0.5rem;
   font-size: 0.95rem;
@@ -174,7 +282,6 @@ ul { list-style: none; }
   line-height: 1.55;
 }
 
-/* Critical: full-width, natural aspect ratio, NO cropping */
 .zone-image-wrapper {
   position: relative;
   width: 100%;
@@ -186,7 +293,7 @@ ul { list-style: none; }
   display: block;
 }
 
-/* Hotspot dots */
+/* ── Hotspot dots (zone pages) ─────────────────────────────────────────── */
 .hotspots { position: absolute; inset: 0; pointer-events: none; }
 
 .hotspot-dot {
@@ -195,7 +302,7 @@ ul { list-style: none; }
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255,255,255,0.92);
   border: 2.5px solid var(--green-dark);
   cursor: pointer;
   pointer-events: all;
@@ -219,7 +326,6 @@ ul { list-style: none; }
   background: var(--green-light);
 }
 
-/* Dev mode label */
 .hotspot-dev-label {
   position: absolute;
   bottom: calc(100% + 4px);
@@ -243,7 +349,7 @@ ul { list-style: none; }
   padding: 0.5rem 1rem;
 }
 
-/* Plant list (below zone image) */
+/* ── Plant list ────────────────────────────────────────────────────────── */
 .plant-list {
   padding: 0.5rem 0 4rem;
 }
@@ -309,7 +415,7 @@ ul { list-style: none; }
   font-size: 0.9rem;
 }
 
-/* ── Plant drawer (slides up from bottom of zone page) ─────────────────── */
+/* ── Plant drawer ──────────────────────────────────────────────────────── */
 .plant-drawer {
   position: fixed;
   bottom: 0;
@@ -326,9 +432,7 @@ ul { list-style: none; }
   -webkit-overflow-scrolling: touch;
 }
 
-.plant-drawer.open {
-  transform: translateY(0);
-}
+.plant-drawer.open { transform: translateY(0); }
 
 .drawer-handle {
   width: 36px;
@@ -392,9 +496,7 @@ ul { list-style: none; }
 .drawer-backdrop.visible { display: block; }
 
 /* ── Plant profile page ────────────────────────────────────────────────── */
-.plant-photos {
-  background: #000;
-}
+.plant-photos { background: #000; }
 
 .plant-photo {
   width: 100%;
@@ -402,17 +504,11 @@ ul { list-style: none; }
   display: block;
 }
 
-.plant-photo + .plant-photo {
-  margin-top: 2px;
-}
+.plant-photo + .plant-photo { margin-top: 2px; }
 
-.plant-meta {
-  padding: 0.85rem 1.25rem 0;
-}
+.plant-meta { padding: 0.85rem 1.25rem 0; }
 
-.plant-section {
-  padding: 1.25rem 1.25rem 0;
-}
+.plant-section { padding: 1.25rem 1.25rem 0; }
 
 .plant-section h2 {
   font-size: 0.7rem;
@@ -470,7 +566,6 @@ ul { list-style: none; }
   color: var(--text-muted);
 }
 
-/* Extra bottom padding so last section clears mobile nav */
 #plant-main { padding-bottom: 3rem; }
 
 /* ── Status badge ───────────────────────────────────────────────────────── */
@@ -486,19 +581,16 @@ ul { list-style: none; }
   vertical-align: middle;
 }
 
-/* ── Utilities ──────────────────────────────────────────────────────────── */
-@media (min-width: 600px) {
-  .zone-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .zone-card { border-right: 1px solid var(--cream-dark); }
-}
-
+/* ── Desktop ────────────────────────────────────────────────────────────── */
 @media (min-width: 900px) {
   body { max-width: 680px; margin: 0 auto; }
   .page-header { position: sticky; }
-  .plant-drawer { max-width: 680px; left: 50%; transform: translateX(-50%) translateY(100%); }
-  .plant-drawer.open { transform: translateX(-50%) translateY(0); }
-  .drawer-backdrop { max-width: 680px; left: 50%; }
+  .plant-drawer {
+    max-width: 680px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+  }
+  .plant-drawer.open {
+    transform: translateX(-50%) translateY(0);
+  }
 }

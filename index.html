@@ -8,19 +8,24 @@
 </head>
 <body class="landing-page">
 
-  <header class="garden-header">
-    <h1>Glen's Garden</h1>
-    <p class="tagline">A living journal, one zone at a time.</p>
-  </header>
+  <div class="hero-wrapper" id="hero-wrapper">
+    <img id="hero-image" class="hero-image" src="" alt="Glen's Garden" />
 
-  <main>
-    <div class="hero-wrapper">
-      <img id="hero-image" class="hero-image" src="" alt="Full garden view" />
-      <div id="zone-dots" class="zone-dots"></div>
+    <div class="landing-title-overlay">
+      <h1>Glen's Garden</h1>
     </div>
 
-    <nav id="zone-grid" class="zone-grid" aria-label="Garden zones"></nav>
-  </main>
+    <!-- Backyard zone hotspots injected by JS -->
+    <div id="landing-hotspots"></div>
+
+    <!-- Front Yard dropdown -->
+    <div class="front-yard-container">
+      <button id="front-yard-btn" class="front-yard-btn" aria-expanded="false">
+        Front Yard <span class="fy-arrow">▾</span>
+      </button>
+      <div id="front-yard-menu" class="front-yard-menu" aria-hidden="true"></div>
+    </div>
+  </div>
 
   <script src="photo-config.js"></script>
   <script src="app.js"></script>
@@ -28,28 +33,55 @@
     async function initLanding() {
       const data = await loadGardenData();
 
-      // Hero image
-      const heroImg = document.getElementById('hero-image');
-      heroImg.src = getPhotoUrl('01-full-garden-hero.JPG');
+      document.getElementById('hero-image').src = getPhotoUrl('01-full-garden-hero.JPG');
 
-      // Zone grid cards (skip zone 01 — it IS the hero)
-      const grid = document.getElementById('zone-grid');
-      data.zones.forEach(zone => {
-        if (zone.id === '01') return;
-        const card = document.createElement('a');
-        card.href = `zone.html?zone=${zone.id}`;
-        card.className = 'zone-card';
-        card.innerHTML = `
-          <div class="zone-card-img-wrap">
-            <img src="${getPhotoUrl(zone.overview_photo)}" alt="${zone.name}" loading="lazy" />
-          </div>
-          <div class="zone-card-info">
-            <span class="zone-number">Zone ${zone.id}</span>
-            <h2>${zone.name}</h2>
-            <p>${zone.description}</p>
-          </div>
-        `;
-        grid.appendChild(card);
+      // Backyard zone dots with labels
+      const hotspotsEl = document.getElementById('landing-hotspots');
+      data.zones
+        .filter(z => z.landing_hotspot)
+        .forEach(zone => {
+          const a = document.createElement('a');
+          a.href = `zone.html?zone=${zone.id}`;
+          a.className = 'landing-zone-dot';
+          a.style.left = zone.landing_hotspot.x + '%';
+          a.style.top  = zone.landing_hotspot.y + '%';
+          a.innerHTML = `
+            <span class="zone-dot-pip"></span>
+            <span class="zone-dot-label">${zone.name}</span>
+          `;
+          if (DEV_MODE) {
+            a.classList.add('dev');
+            a.title = `${zone.name}: x=${zone.landing_hotspot.x} y=${zone.landing_hotspot.y}`;
+          }
+          hotspotsEl.appendChild(a);
+        });
+
+      // Front Yard dropdown links
+      const menu = document.getElementById('front-yard-menu');
+      data.zones
+        .filter(z => z.front_yard)
+        .sort((a, b) => a.front_yard_order - b.front_yard_order)
+        .forEach(zone => {
+          const a = document.createElement('a');
+          a.href = `zone.html?zone=${zone.id}`;
+          a.className = 'fy-menu-item';
+          a.textContent = zone.name;
+          menu.appendChild(a);
+        });
+
+      // Toggle
+      const btn = document.getElementById('front-yard-btn');
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+        btn.querySelector('.fy-arrow').textContent = open ? '▴' : '▾';
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+        btn.querySelector('.fy-arrow').textContent = '▾';
       });
     }
 
