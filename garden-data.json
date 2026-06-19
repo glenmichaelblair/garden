@@ -102,15 +102,20 @@
           "fun_fact": "Palo Verde trees can photosynthesize through their green bark even when they drop their tiny leaves during drought — a survival trick unique to the desert."
         },
         {
-          "id": "rosemary-01",
-          "name": "Rosemary #1",
+          "id": "rosemary",
+          "name": "Rosemary",
           "status": "Established",
           "photos": [
-            "03-street-garden-rosemary-01.JPG"
+            "03-street-garden-rosemary-01.JPG",
+            "03-street-garden-rosemary-02.JPG"
           ],
+          "hotspot": {
+            "x": 15,
+            "y": 65
+          },
           "highlights": [
             "Variety: Coast Smokey — a compact, upright cultivar.",
-            "Left of Palo Verde, mirroring Rosemary #2 on the right.",
+            "A matched pair — #1 left and #2 right of the Palo Verde.",
             "Fragrant, edible, and beloved by pollinators."
           ],
           "care_notes": [
@@ -118,39 +123,24 @@
             "Light trim after flowering to encourage bushy growth.",
             "No fertilizer needed; lean soil keeps flavor concentrated."
           ],
-          "personal_notes": "Part of the symmetrical planting flanking the Palo Verde. Coast Smokey was chosen for its controlled size and smoky-blue flower color.",
+          "personal_notes": "A symmetrical pair flanking the Palo Verde. Coast Smokey was chosen for its controlled size and smoky-blue flower color.",
           "fun_fact": "Rosemary has been a symbol of remembrance for centuries — ancient Greek students wore rosemary garlands while studying to improve memory."
         },
         {
-          "id": "rosemary-02",
-          "name": "Rosemary #2",
+          "id": "lavender",
+          "name": "Lavender",
           "status": "Established",
           "photos": [
-            "03-street-garden-rosemary-02.JPG"
+            "03-street-garden-lavender-01.JPG",
+            "03-street-garden-lavender-02.JPG"
           ],
-          "highlights": [
-            "Variety: Coast Smokey — mirrors Rosemary #1 on the left.",
-            "Right of Palo Verde, creating symmetry in the street planting.",
-            "Fragrant, edible, and loved by bees."
-          ],
-          "care_notes": [
-            "Drought-tolerant — water only when soil is fully dry.",
-            "Light trim after flowering to encourage bushy growth.",
-            "No fertilizer needed; lean soil keeps flavor concentrated."
-          ],
-          "personal_notes": "The right-side bookend to Rosemary #1. Together they frame the base of the Palo Verde.",
-          "fun_fact": "A single rosemary plant can live for over 30 years — it's the long game of the herb garden."
-        },
-        {
-          "id": "lavender-01",
-          "name": "Lavender #1",
-          "status": "Established",
-          "photos": [
-            "03-street-garden-lavender-01.JPG"
-          ],
+          "hotspot": {
+            "x": 8,
+            "y": 70
+          },
           "highlights": [
             "Variety: Goodwin Creek — a long-blooming, heat-tolerant hybrid.",
-            "Left outer flank of the street garden.",
+            "A matched pair flanking the Palo Verde — left and right.",
             "Silvery foliage and deep violet blooms all season."
           ],
           "care_notes": [
@@ -158,59 +148,24 @@
             "Hard cutback by one-third after first bloom flush.",
             "Drought-tolerant once established."
           ],
-          "personal_notes": "Chosen for its extraordinary bloom period and California-friendliness. Goodwin Creek blooms nearly year-round in mild climates.",
-          "fun_fact": "Goodwin Creek lavender is a hybrid that doesn't produce viable seeds — every plant in the world is a cutting descended from the original discovery."
+          "personal_notes": "Chosen for its extraordinary bloom period and California-friendliness. The left and right specimens mirror each other across the Palo Verde.",
+          "fun_fact": "Lavender was used by ancient Romans to scent their baths — the name comes from the Latin 'lavare,' meaning 'to wash.'"
         },
         {
-          "id": "lavender-02",
-          "name": "Lavender #2",
+          "id": "texas-sage",
+          "name": "Texas Sage",
           "status": "Established",
           "photos": [
-            "03-street-garden-lavender-02.JPG"
-          ],
-          "highlights": [
-            "Variety: Goodwin Creek — mirrors Lavender #1 on the left.",
-            "Right outer flank of the street garden.",
-            "Deep violet blooms and silvery-gray foliage."
-          ],
-          "care_notes": [
-            "Full sun, excellent drainage — does not tolerate wet feet.",
-            "Hard cutback by one-third after first bloom flush.",
-            "Drought-tolerant once established."
-          ],
-          "personal_notes": "The right-side mirror to Lavender #1. Together they soften the outer edges of the street garden.",
-          "fun_fact": "Lavender was used by ancient Romans to scent their baths — in fact, the name comes from the Latin 'lavare,' meaning 'to wash.'"
-        },
-        {
-          "id": "texas-sage-01",
-          "name": "Texas Sage #1",
-          "status": "Established",
-          "photos": [
-            "03-street-garden-texas-sage-01.JPG"
-          ],
-          "highlights": [
-            "Left outer flank — the outermost sentinel of the street garden.",
-            "Blooms explosively after summer rain or humidity spikes.",
-            "Silver-green foliage with magenta-purple flowers."
-          ],
-          "care_notes": [
-            "Extremely drought-tolerant — overwatering is the main killer.",
-            "No fertilizer; lean, well-draining soil preferred.",
-            "Light shaping only — avoid heavy pruning."
-          ],
-          "personal_notes": "Texas Sage is one of the toughest plants in the garden. Its bloom cycle is tied to weather patterns, making every flush feel like a surprise gift.",
-          "fun_fact": "Texas Sage is sometimes called a 'barometer bush' because it reliably blooms within days of a drop in barometric pressure — locals use it to predict rain."
-        },
-        {
-          "id": "texas-sage-02",
-          "name": "Texas Sage #2",
-          "status": "Established",
-          "photos": [
+            "03-street-garden-texas-sage-01.JPG",
             "03-street-garden-texas-sage-02.JPG"
           ],
+          "hotspot": {
+            "x": 5,
+            "y": 60
+          },
           "highlights": [
-            "Right outer flank — mirrors Texas Sage #1.",
-            "Weather-triggered bloomer — watches the sky as much as the soil.",
+            "A matched pair on the outer flanks — left and right of the Palo Verde.",
+            "Blooms explosively after summer humidity spikes.",
             "Silver-green foliage with magenta-purple flowers."
           ],
           "care_notes": [
@@ -218,8 +173,8 @@
             "No fertilizer; lean, well-draining soil preferred.",
             "Light shaping only — avoid heavy pruning."
           ],
-          "personal_notes": "Right-side anchor of the street garden's outer edge. Paired with Texas Sage #1 for symmetry and resilience.",
-          "fun_fact": "Despite the name, Texas Sage (Leucophyllum frutescens) is not a true sage — it's in the snapdragon family. The name comes from its sage-colored leaves."
+          "personal_notes": "The outermost sentinels of the street garden, one on each flank. Among the toughest plants in the whole garden.",
+          "fun_fact": "Despite the name, Texas Sage (Leucophyllum frutescens) is not a true sage — it's in the snapdragon family."
         }
       ]
     },
@@ -288,6 +243,7 @@
       "id": "05",
       "slug": "thailand-bed",
       "name": "Thailand Bed",
+      "landing_label": "Thailand and Tomatoes",
       "landing_hotspot": {
         "x": 15,
         "y": 50
@@ -304,7 +260,7 @@
           ],
           "hotspot": {
             "x": 22,
-            "y": 38
+            "y": 55
           },
           "highlights": [
             "Flowered early — energy redirected from leaf production to seed.",
@@ -327,8 +283,8 @@
             "05-thailand-bed-thai-chili-pepper.JPG"
           ],
           "hotspot": {
-            "x": 35,
-            "y": 35
+            "x": 26,
+            "y": 42
           },
           "highlights": [
             "Prolific producer — these tiny chilies pack serious heat.",
@@ -414,6 +370,22 @@
           ],
           "personal_notes": "The slow build of the Thailand Bed. Carrots reward patience — you don't know what's happening underground until harvest day.",
           "fun_fact": "Purple and yellow carrots were actually the original colors — orange carrots were selectively bred in the Netherlands in the 17th century, possibly to honor the Dutch royal House of Orange."
+        }
+      ],
+      "nav_hotspots": [
+        {
+          "target": "06",
+          "hotspot": {
+            "x": 25,
+            "y": 88
+          }
+        },
+        {
+          "target": "04",
+          "hotspot": {
+            "x": 82,
+            "y": 85
+          }
         }
       ]
     },
@@ -716,23 +688,31 @@
           "target": "08a",
           "hotspot": {
             "x": 50,
-            "y": 38
+            "y": 50
           }
         },
         {
           "name": "Friends",
           "target": "08b",
           "hotspot": {
-            "x": 28,
-            "y": 78
+            "x": 16,
+            "y": 74
           }
         },
         {
           "name": "Seedlings",
           "target": "08c",
           "hotspot": {
-            "x": 62,
-            "y": 90
+            "x": 50,
+            "y": 84
+          }
+        },
+        {
+          "name": "Friends",
+          "target": "08b",
+          "hotspot": {
+            "x": 72,
+            "y": 70
           }
         }
       ],

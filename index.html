@@ -47,7 +47,7 @@
           a.style.top  = zone.landing_hotspot.y + '%';
           a.innerHTML = `
             <span class="zone-dot-pip"></span>
-            <span class="zone-dot-label">${zone.name}</span>
+            <span class="zone-dot-label">${zone.landing_label || zone.name}</span>
           `;
           if (DEV_MODE) {
             a.classList.add('dev');

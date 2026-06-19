@@ -110,6 +110,7 @@
       // Hub zone: render sub-zone hotspots + cards that navigate one level deeper
       if (zone.sub_zones && zone.sub_zones.length) {
         document.querySelector('.tap-hint').textContent = 'Tap an area to explore.';
+        const seenTargets = new Set();
         zone.sub_zones.forEach(sz => {
           const target = getZone(data, sz.target);
           if (sz.hotspot) {
@@ -122,20 +123,24 @@
             if (DEV_MODE) a.classList.add('dev');
             hotspotsEl.appendChild(a);
           }
-          const card = document.createElement('a');
-          card.href = `zone.html?zone=${sz.target}`;
-          card.className = 'plant-list-item';
-          card.innerHTML = `
-            <div class="plant-list-thumb">
-              <img src="${getPhotoUrl(target ? target.overview_photo : '')}" alt="${sz.name}" loading="lazy" />
-            </div>
-            <div class="plant-list-info">
-              <h3>${sz.name}</h3>
-              <p>${target ? target.description : ''}</p>
-            </div>
-            <span class="plant-list-arrow">›</span>
-          `;
-          list.appendChild(card);
+          // One list card per unique target (a target may have two dots, e.g. Friends)
+          if (!seenTargets.has(sz.target)) {
+            seenTargets.add(sz.target);
+            const card = document.createElement('a');
+            card.href = `zone.html?zone=${sz.target}`;
+            card.className = 'plant-list-item';
+            card.innerHTML = `
+              <div class="plant-list-thumb">
+                <img src="${getPhotoUrl(target ? target.overview_photo : '')}" alt="${sz.name}" loading="lazy" />
+              </div>
+              <div class="plant-list-info">
+                <h3>${sz.name}</h3>
+                <p>${target ? target.description : ''}</p>
+              </div>
+              <span class="plant-list-arrow">›</span>
+            `;
+            list.appendChild(card);
+          }
         });
         return;
       }
@@ -158,6 +163,21 @@
 
         dot.addEventListener('click', () => openDrawer(plant, zone));
         hotspotsEl.appendChild(dot);
+      });
+
+      // Lateral nav hotspots: labeled dots linking to adjacent zones (e.g. Thailand → Bed One, Blueberry)
+      (zone.nav_hotspots || []).forEach(nav => {
+        if (!nav.hotspot) return;
+        const target = getZone(data, nav.target);
+        const a = document.createElement('a');
+        a.className = 'landing-zone-dot nav-hotspot';
+        a.href = `zone.html?zone=${nav.target}`;
+        a.style.left = nav.hotspot.x + '%';
+        a.style.top  = nav.hotspot.y + '%';
+        const label = nav.label || (target ? target.name : nav.target);
+        a.innerHTML = `<span class="zone-dot-pip"></span><span class="zone-dot-label">${label}</span>`;
+        if (DEV_MODE) { a.classList.add('dev'); a.title = `${label}: x=${nav.hotspot.x} y=${nav.hotspot.y}`; }
+        hotspotsEl.appendChild(a);
       });
 
       // Plant list below image
