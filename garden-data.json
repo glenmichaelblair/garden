@@ -754,7 +754,25 @@
           }
         }
       ],
-      "plants": []
+      "plants": [],
+      "nav_hotspots": [
+        {
+          "target": "05",
+          "arrow": "left",
+          "hotspot": {
+            "x": 12,
+            "y": 12
+          }
+        },
+        {
+          "target": "07",
+          "arrow": "right",
+          "hotspot": {
+            "x": 88,
+            "y": 12
+          }
+        }
+      ]
     },
     {
       "id": "08a",
@@ -1061,6 +1079,16 @@
           ],
           "personal_notes": "The Persian cucumber brings a vertical element to the floor cluster. Watching it climb the arch is one of the garden's daily satisfactions.",
           "fun_fact": "Persian cucumbers have naturally thin, tender skin and almost no seeds — they were bred for eating whole without peeling, making them the snacking cucumber of choice."
+        }
+      ],
+      "nav_hotspots": [
+        {
+          "target": "06",
+          "arrow": "right",
+          "hotspot": {
+            "x": 85,
+            "y": 90
+          }
         }
       ]
     },
