@@ -59,6 +59,7 @@
 
         <div class="plant-meta">
           ${statusBadge(plant.status)}
+          ${plant.nickname ? `<span class="plant-nickname">a.k.a. &ldquo;${plant.nickname}&rdquo;</span>` : ''}
         </div>
 
         ${plant.highlights && plant.highlights.length ? `
