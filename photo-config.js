@@ -53,7 +53,11 @@ const PHOTO_IDS = {
   "07-basil-bed-marigold-02.JPG":        "1kJrkh1ZBmmYXylCK1HiM2QoIRR7Ss23q",
 
   // Zone 08
+  "08-terracotta-row-full-overview-zoomed-out.JPG": "1zkHj62bo1-pWsSqFarr20NLRsSU_2YfJ",
   "08-terracotta-row-overview.JPG":           "145rKQ_Ms6wJjCrirA3UCadT2gqyG3JOV",
+  "08-terracotta-row-marigold-deadheads.JPG": "19-8HhSyj5q7wyhWW2yIZvFjCfwZ0H9-y",
+  "08-terracotta-row-seedlings-01.JPG":       "1vCwJAejzZNp_-faJHifwMRDym-gv-fjO",
+  "08-terracotta-row-seedlings-02.JPG":       "1xACCDzaNjYMVV9PM0STbRv5lbOz1LOPV",
   "08-terracotta-row-california-sagebrush.JPG":"1aswNcr2z5GBWpvEvFQQWfVpeITEvOnze",
   "08-terracotta-row-sweet-banana-pepper.JPG": "1_GE0cFO9vOnWCVOFLw386L0RHDdttwbr",
   "08-terracotta-row-anaheim-chili.JPG":       "1S7tu-4-ReaCSn59z7tWXt7QVGaJLhSFR",

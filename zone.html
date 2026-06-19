@@ -96,8 +96,51 @@
         }
       }
 
-      // Hotspot dots
+      // Sub-zone: back link returns to the parent hub instead of the landing
+      if (zone.parent) {
+        const parent = getZone(data, zone.parent);
+        const back = document.getElementById('back-link');
+        back.href = `zone.html?zone=${zone.parent}`;
+        back.innerHTML = `↑ ${parent ? parent.name : 'Back'}`;
+      }
+
       const hotspotsEl = document.getElementById('hotspots');
+      const list = document.getElementById('plant-list');
+
+      // Hub zone: render sub-zone hotspots + cards that navigate one level deeper
+      if (zone.sub_zones && zone.sub_zones.length) {
+        document.querySelector('.tap-hint').textContent = 'Tap an area to explore.';
+        zone.sub_zones.forEach(sz => {
+          const target = getZone(data, sz.target);
+          if (sz.hotspot) {
+            const a = document.createElement('a');
+            a.className = 'landing-zone-dot';
+            a.href = `zone.html?zone=${sz.target}`;
+            a.style.left = sz.hotspot.x + '%';
+            a.style.top  = sz.hotspot.y + '%';
+            a.innerHTML = `<span class="zone-dot-pip"></span><span class="zone-dot-label">${sz.name}</span>`;
+            if (DEV_MODE) a.classList.add('dev');
+            hotspotsEl.appendChild(a);
+          }
+          const card = document.createElement('a');
+          card.href = `zone.html?zone=${sz.target}`;
+          card.className = 'plant-list-item';
+          card.innerHTML = `
+            <div class="plant-list-thumb">
+              <img src="${getPhotoUrl(target ? target.overview_photo : '')}" alt="${sz.name}" loading="lazy" />
+            </div>
+            <div class="plant-list-info">
+              <h3>${sz.name}</h3>
+              <p>${target ? target.description : ''}</p>
+            </div>
+            <span class="plant-list-arrow">›</span>
+          `;
+          list.appendChild(card);
+        });
+        return;
+      }
+
+      // Plant hotspot dots
       zone.plants.forEach(plant => {
         if (!plant.hotspot) return;
         const dot = document.createElement('button');
@@ -118,7 +161,6 @@
       });
 
       // Plant list below image
-      const list = document.getElementById('plant-list');
       if (zone.plants.length === 0) {
         list.innerHTML = '<p class="empty-note">Plant profiles coming soon.</p>';
       } else {
