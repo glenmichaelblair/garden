@@ -65,6 +65,24 @@
           "personal_notes": "Represents one of the first serious fruit tree experiments. Originally lived in the backyard before being moved to the front yard.",
           "fun_fact": "Valencia oranges are one of the most widely grown orange varieties in the world — named after Valencia, Spain, though they were actually developed in California."
         }
+      ],
+      "nav_hotspots": [
+        {
+          "target": "03",
+          "arrow": "left",
+          "hotspot": {
+            "x": 12,
+            "y": 88
+          }
+        },
+        {
+          "target": "10",
+          "arrow": "right",
+          "hotspot": {
+            "x": 88,
+            "y": 88
+          }
+        }
       ]
     },
     {
@@ -375,6 +393,7 @@
       "nav_hotspots": [
         {
           "target": "06",
+          "arrow": "left",
           "hotspot": {
             "x": 10,
             "y": 77
@@ -382,6 +401,7 @@
         },
         {
           "target": "04",
+          "arrow": "right",
           "hotspot": {
             "x": 80,
             "y": 87
@@ -669,6 +689,24 @@
           ],
           "personal_notes": "The basil bed has two marigolds on patrol. The more fragrant the neighbors, the fewer the pests.",
           "fun_fact": "The strong scent of marigolds confuses and repels insects looking for host plants — they work by masking the smell of the plants you're trying to protect."
+        }
+      ],
+      "nav_hotspots": [
+        {
+          "target": "04",
+          "arrow": "left",
+          "hotspot": {
+            "x": 12,
+            "y": 90
+          }
+        },
+        {
+          "target": "08",
+          "arrow": "right",
+          "hotspot": {
+            "x": 88,
+            "y": 90
+          }
         }
       ]
     },

@@ -296,6 +296,32 @@ ul { list-style: none; }
 /* ── Hotspot dots (zone pages) ─────────────────────────────────────────── */
 .hotspots { position: absolute; inset: 0; pointer-events: none; }
 
+/* Nav arrows — signposts pointing to other sections */
+.nav-arrow {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  pointer-events: all;
+  background: rgba(45, 74, 30, 0.92);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1.5px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+.nav-arrow .arrow-glyph { font-size: 1.05rem; line-height: 1; }
+.nav-arrow.dir-left { flex-direction: row; }
+.nav-arrow.dir-right { flex-direction: row-reverse; }
+.nav-arrow:active { background: var(--green-mid); }
+.nav-arrow.dev { outline: 2px dashed #f0c14b; outline-offset: 2px; }
+
 .hotspot-dot {
   position: absolute;
   transform: translate(-50%, -50%);
