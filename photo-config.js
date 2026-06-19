@@ -4,7 +4,7 @@
 
 const PHOTO_IDS = {
   // Zone 01
-  "01-full-garden-hero.JPG": "1d0V6favXJjYpLgQyDk_2cPYG2vjedgnd",
+  "01-full-garden-hero.JPG": "1Lk851dprU3t6uX6_oBp-XOL2an2Dsmeb",
 
   // Zone 02
   "02-front-yard-trees-overview.JPG":    "1gwnetrR9BjsLLCvbB9HIALGv6SacVklU",
