@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant — Glen's Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="plant-page">
+
+  <header class="page-header">
+    <a id="back-to-zone" href="index.html" class="back-link">← Zone</a>
+    <div class="header-title">
+      <h1 id="plant-name"></h1>
+    </div>
+  </header>
+
+  <main id="plant-main"></main>
+
+  <script src="photo-config.js"></script>
+  <script src="app.js"></script>
+  <script>
+    async function initPlant() {
+      const zoneId  = getParam('zone');
+      const plantId = getParam('plant');
+      if (!zoneId || !plantId) { window.location = 'index.html'; return; }
+
+      const data  = await loadGardenData();
+      const zone  = getZone(data, zoneId);
+      if (!zone) { window.location = 'index.html'; return; }
+      const plant = getPlant(zone, plantId);
+      if (!plant) { window.location = `zone.html?zone=${zoneId}`; return; }
+
+      document.title = `${plant.name} — Glen's Garden`;
+      document.getElementById('plant-name').textContent = plant.name;
+      document.getElementById('back-to-zone').href = `zone.html?zone=${zoneId}`;
+
+      const main = document.getElementById('plant-main');
+
+      // Photos
+      const photosHtml = plant.photos.map((f, i) =>
+        `<img class="plant-photo${i === 0 ? ' primary' : ''}" src="${getPhotoUrl(f)}" alt="${plant.name}" loading="${i === 0 ? 'eager' : 'lazy'}" />`
+      ).join('');
+
+      // Highlights
+      const highlightsHtml = (plant.highlights || []).map(h =>
+        `<li>${h}</li>`
+      ).join('');
+
+      // Care notes
+      const careHtml = (plant.care_notes || []).map(c =>
+        `<li>${c}</li>`
+      ).join('');
+
+      main.innerHTML = `
+        <div class="plant-photos">
+          ${photosHtml}
+        </div>
+
+        <div class="plant-meta">
+          ${statusBadge(plant.status)}
+        </div>
+
+        ${plant.highlights && plant.highlights.length ? `
+        <section class="plant-section">
+          <h2>Highlights</h2>
+          <ul class="bullet-list">${highlightsHtml}</ul>
+        </section>` : ''}
+
+        ${plant.personal_notes ? `
+        <section class="plant-section personal-notes">
+          <h2>Garden Notes</h2>
+          <p>${plant.personal_notes}</p>
+        </section>` : ''}
+
+        ${plant.care_notes && plant.care_notes.length ? `
+        <section class="plant-section">
+          <h2>Care</h2>
+          <ul class="bullet-list care-list">${careHtml}</ul>
+        </section>` : ''}
+
+        ${plant.fun_fact ? `
+        <section class="plant-section fun-fact">
+          <h2>Did you know?</h2>
+          <p>${plant.fun_fact}</p>
+        </section>` : ''}
+      `;
+    }
+
+    initPlant();
+  </script>
+</body>
+</html>

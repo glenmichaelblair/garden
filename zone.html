@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zone — Glen's Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="zone-page">
+
+  <header class="page-header">
+    <a href="index.html" class="back-link">← Garden</a>
+    <div class="header-title">
+      <span id="zone-number" class="zone-number-label"></span>
+      <h1 id="zone-name"></h1>
+    </div>
+  </header>
+
+  <main>
+    <p id="zone-description" class="zone-description"></p>
+
+    <div class="zone-image-wrapper" id="image-wrapper">
+      <img id="zone-image" class="zone-image" src="" alt="" />
+      <div id="hotspots" class="hotspots"></div>
+    </div>
+
+    <p class="tap-hint">Tap a dot to explore a plant.</p>
+
+    <div id="plant-list" class="plant-list"></div>
+  </main>
+
+  <!-- Plant drawer (slides up on hotspot tap) -->
+  <div id="plant-drawer" class="plant-drawer" aria-hidden="true">
+    <div class="drawer-handle" id="drawer-handle"></div>
+    <div class="drawer-content" id="drawer-content"></div>
+  </div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <script src="photo-config.js"></script>
+  <script src="app.js"></script>
+  <script>
+    async function initZone() {
+      const zoneId = getParam('zone');
+      if (!zoneId) { window.location = 'index.html'; return; }
+
+      const data = await loadGardenData();
+      const zone = getZone(data, zoneId);
+      if (!zone) { window.location = 'index.html'; return; }
+
+      document.title = `${zone.name} — Glen's Garden`;
+      document.getElementById('zone-number-label').textContent = `Zone ${zone.id}`;
+      document.getElementById('zone-name').textContent = zone.name;
+      document.getElementById('zone-description').textContent = zone.description;
+
+      const img = document.getElementById('zone-image');
+      img.src = getPhotoUrl(zone.overview_photo);
+      img.alt = zone.name + ' overview';
+
+      // Hotspot dots
+      const hotspotsEl = document.getElementById('hotspots');
+      zone.plants.forEach(plant => {
+        if (!plant.hotspot) return;
+        const dot = document.createElement('button');
+        dot.className = 'hotspot-dot';
+        dot.style.left = plant.hotspot.x + '%';
+        dot.style.top  = plant.hotspot.y + '%';
+        dot.setAttribute('aria-label', plant.name);
+        dot.setAttribute('data-plant-id', plant.id);
+
+        if (DEV_MODE) {
+          const label = document.createElement('span');
+          label.className = 'hotspot-dev-label';
+          label.textContent = `${plant.name} (${plant.hotspot.x},${plant.hotspot.y})`;
+          dot.appendChild(label);
+        }
+
+        dot.addEventListener('click', () => openDrawer(plant));
+        hotspotsEl.appendChild(dot);
+      });
+
+      // Plant list below image
+      const list = document.getElementById('plant-list');
+      if (zone.plants.length === 0) {
+        list.innerHTML = '<p class="empty-note">Plant profiles coming soon.</p>';
+      } else {
+        zone.plants.forEach(plant => {
+          const card = document.createElement('a');
+          card.href = `plant.html?zone=${zone.id}&plant=${plant.id}`;
+          card.className = 'plant-list-item';
+          card.innerHTML = `
+            <div class="plant-list-thumb">
+              <img src="${getPhotoUrl(plant.photos[0])}" alt="${plant.name}" loading="lazy" />
+            </div>
+            <div class="plant-list-info">
+              <h3>${plant.name}</h3>
+              ${statusBadge(plant.status)}
+              <p>${plant.highlights[0] || ''}</p>
+            </div>
+            <span class="plant-list-arrow">›</span>
+          `;
+          list.appendChild(card);
+        });
+      }
+    }
+
+    function openDrawer(plant) {
+      const drawer = document.getElementById('plant-drawer');
+      const content = document.getElementById('drawer-content');
+      const backdrop = document.getElementById('drawer-backdrop');
+
+      content.innerHTML = `
+        <div class="drawer-plant-header">
+          <h2>${plant.name}</h2>
+          ${statusBadge(plant.status)}
+        </div>
+        <img class="drawer-thumb" src="${getPhotoUrl(plant.photos[0])}" alt="${plant.name}" />
+        <p class="drawer-highlight">${plant.highlights[0] || ''}</p>
+        <a class="drawer-full-link" href="plant.html?zone=${getParam('zone')}&plant=${plant.id}">
+          Full profile →
+        </a>
+      `;
+
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.classList.add('visible');
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('plant-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.classList.remove('visible');
+    }
+
+    document.getElementById('drawer-backdrop').addEventListener('click', closeDrawer);
+    document.getElementById('drawer-handle').addEventListener('click', closeDrawer);
+
+    initZone();
+  </script>
+</body>
+</html>

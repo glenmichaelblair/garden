@@ -1,0 +1,852 @@
+{
+  "zones": [
+    {
+      "id": "01",
+      "slug": "full-garden",
+      "name": "Full Garden",
+      "description": "The whole garden at a glance.",
+      "overview_photo": "01-full-garden-hero.JPG",
+      "plants": []
+    },
+    {
+      "id": "02",
+      "slug": "front-yard-trees",
+      "name": "Front Yard Trees",
+      "description": "Two young fruit trees staking their claim in the front yard.",
+      "overview_photo": "02-front-yard-trees-overview.JPG",
+      "plants": [
+        {
+          "id": "nectarine",
+          "name": "Nectarine",
+          "status": "Established",
+          "photos": ["02-front-yard-trees-nectarine.JPG"],
+          "hotspot": { "x": 28, "y": 55 },
+          "highlights": [
+            "Young tree in its first full season in the ground.",
+            "Planted in the front yard to anchor the left side.",
+            "Nectarines are a fuzz-free cousin of the peach."
+          ],
+          "care_notes": [
+            "Water deeply and consistently while establishing.",
+            "Fruit tree fertilizer in early spring before bud break.",
+            "Watch for peach leaf curl and treat preventatively in winter."
+          ],
+          "personal_notes": "Part of the front yard tree duo. Chosen for its summer fruit and ornamental spring blossoms.",
+          "fun_fact": "Nectarines are not a cross between a peach and a plum — they're simply peaches with a recessive gene that makes the skin smooth."
+        },
+        {
+          "id": "valencia-orange",
+          "name": "Valencia Orange",
+          "status": "Fruiting",
+          "photos": ["02-front-yard-trees-valencia-orange.JPG"],
+          "hotspot": { "x": 72, "y": 40 },
+          "highlights": [
+            "Working on its second orange crop.",
+            "In the ground since February/March 2026.",
+            "One of the garden's anchor plants."
+          ],
+          "care_notes": [
+            "Monitor fruit production and leaf health.",
+            "Citrus 7-3-3 granular every 6–8 weeks (next: mid-July 2026).",
+            "Chelated iron foliar spray if yellowing returns."
+          ],
+          "personal_notes": "Represents one of the first serious fruit tree experiments. Originally lived in the backyard before being moved to the front yard.",
+          "fun_fact": "Valencia oranges are one of the most widely grown orange varieties in the world — named after Valencia, Spain, though they were actually developed in California."
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "slug": "street-garden",
+      "name": "Street Garden",
+      "description": "A drought-tolerant Mediterranean display flanking the Palo Verde. #1 = left of Palo Verde, #2 = right.",
+      "overview_photo": "03-street-garden-overview.JPG",
+      "plants": [
+        {
+          "id": "palo-verde",
+          "name": "Palo Verde",
+          "status": "Thriving",
+          "photos": ["03-street-garden-palo-verde.JPG"],
+          "hotspot": { "x": 50, "y": 30 },
+          "highlights": [
+            "The structural anchor of the entire street garden.",
+            "A California-friendly tree with brilliant yellow spring blooms.",
+            "Its name means 'green stick' in Spanish — the bark photosynthesizes."
+          ],
+          "care_notes": [
+            "Drought-tolerant once established — water deeply but infrequently.",
+            "Minimal pruning; remove dead wood in late winter.",
+            "Fixes nitrogen and supports surrounding drought-tolerant companions."
+          ],
+          "personal_notes": "Chosen to anchor the street garden with structure and shade as the garden matures. Everything around it orbits its presence.",
+          "fun_fact": "Palo Verde trees can photosynthesize through their green bark even when they drop their tiny leaves during drought — a survival trick unique to the desert."
+        },
+        {
+          "id": "rosemary-01",
+          "name": "Rosemary #1",
+          "status": "Established",
+          "photos": ["03-street-garden-rosemary-01.JPG"],
+          "hotspot": { "x": 15, "y": 65 },
+          "highlights": [
+            "Variety: Coast Smokey — a compact, upright cultivar.",
+            "Left of Palo Verde, mirroring Rosemary #2 on the right.",
+            "Fragrant, edible, and beloved by pollinators."
+          ],
+          "care_notes": [
+            "Drought-tolerant — water only when soil is fully dry.",
+            "Light trim after flowering to encourage bushy growth.",
+            "No fertilizer needed; lean soil keeps flavor concentrated."
+          ],
+          "personal_notes": "Part of the symmetrical planting flanking the Palo Verde. Coast Smokey was chosen for its controlled size and smoky-blue flower color.",
+          "fun_fact": "Rosemary has been a symbol of remembrance for centuries — ancient Greek students wore rosemary garlands while studying to improve memory."
+        },
+        {
+          "id": "rosemary-02",
+          "name": "Rosemary #2",
+          "status": "Established",
+          "photos": ["03-street-garden-rosemary-02.JPG"],
+          "hotspot": { "x": 82, "y": 65 },
+          "highlights": [
+            "Variety: Coast Smokey — mirrors Rosemary #1 on the left.",
+            "Right of Palo Verde, creating symmetry in the street planting.",
+            "Fragrant, edible, and loved by bees."
+          ],
+          "care_notes": [
+            "Drought-tolerant — water only when soil is fully dry.",
+            "Light trim after flowering to encourage bushy growth.",
+            "No fertilizer needed; lean soil keeps flavor concentrated."
+          ],
+          "personal_notes": "The right-side bookend to Rosemary #1. Together they frame the base of the Palo Verde.",
+          "fun_fact": "A single rosemary plant can live for over 30 years — it's the long game of the herb garden."
+        },
+        {
+          "id": "lavender-01",
+          "name": "Lavender #1",
+          "status": "Established",
+          "photos": ["03-street-garden-lavender-01.JPG"],
+          "hotspot": { "x": 8, "y": 70 },
+          "highlights": [
+            "Variety: Goodwin Creek — a long-blooming, heat-tolerant hybrid.",
+            "Left outer flank of the street garden.",
+            "Silvery foliage and deep violet blooms all season."
+          ],
+          "care_notes": [
+            "Full sun, excellent drainage — does not tolerate wet feet.",
+            "Hard cutback by one-third after first bloom flush.",
+            "Drought-tolerant once established."
+          ],
+          "personal_notes": "Chosen for its extraordinary bloom period and California-friendliness. Goodwin Creek blooms nearly year-round in mild climates.",
+          "fun_fact": "Goodwin Creek lavender is a hybrid that doesn't produce viable seeds — every plant in the world is a cutting descended from the original discovery."
+        },
+        {
+          "id": "lavender-02",
+          "name": "Lavender #2",
+          "status": "Established",
+          "photos": ["03-street-garden-lavender-02.JPG"],
+          "hotspot": { "x": 90, "y": 70 },
+          "highlights": [
+            "Variety: Goodwin Creek — mirrors Lavender #1 on the left.",
+            "Right outer flank of the street garden.",
+            "Deep violet blooms and silvery-gray foliage."
+          ],
+          "care_notes": [
+            "Full sun, excellent drainage — does not tolerate wet feet.",
+            "Hard cutback by one-third after first bloom flush.",
+            "Drought-tolerant once established."
+          ],
+          "personal_notes": "The right-side mirror to Lavender #1. Together they soften the outer edges of the street garden.",
+          "fun_fact": "Lavender was used by ancient Romans to scent their baths — in fact, the name comes from the Latin 'lavare,' meaning 'to wash.'"
+        },
+        {
+          "id": "texas-sage-01",
+          "name": "Texas Sage #1",
+          "status": "Established",
+          "photos": ["03-street-garden-texas-sage-01.JPG"],
+          "hotspot": { "x": 5, "y": 60 },
+          "highlights": [
+            "Left outer flank — the outermost sentinel of the street garden.",
+            "Blooms explosively after summer rain or humidity spikes.",
+            "Silver-green foliage with magenta-purple flowers."
+          ],
+          "care_notes": [
+            "Extremely drought-tolerant — overwatering is the main killer.",
+            "No fertilizer; lean, well-draining soil preferred.",
+            "Light shaping only — avoid heavy pruning."
+          ],
+          "personal_notes": "Texas Sage is one of the toughest plants in the garden. Its bloom cycle is tied to weather patterns, making every flush feel like a surprise gift.",
+          "fun_fact": "Texas Sage is sometimes called a 'barometer bush' because it reliably blooms within days of a drop in barometric pressure — locals use it to predict rain."
+        },
+        {
+          "id": "texas-sage-02",
+          "name": "Texas Sage #2",
+          "status": "Established",
+          "photos": ["03-street-garden-texas-sage-02.JPG"],
+          "hotspot": { "x": 94, "y": 60 },
+          "highlights": [
+            "Right outer flank — mirrors Texas Sage #1.",
+            "Weather-triggered bloomer — watches the sky as much as the soil.",
+            "Silver-green foliage with magenta-purple flowers."
+          ],
+          "care_notes": [
+            "Extremely drought-tolerant — overwatering is the main killer.",
+            "No fertilizer; lean, well-draining soil preferred.",
+            "Light shaping only — avoid heavy pruning."
+          ],
+          "personal_notes": "Right-side anchor of the street garden's outer edge. Paired with Texas Sage #1 for symmetry and resilience.",
+          "fun_fact": "Despite the name, Texas Sage (Leucophyllum frutescens) is not a true sage — it's in the snapdragon family. The name comes from its sage-colored leaves."
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "slug": "blueberry-corner",
+      "name": "Blueberry Corner",
+      "description": "Two pink blueberry plants in matching teal pots — one a standout, one a comeback story.",
+      "overview_photo": "04-blueberry-corner-overview.JPG",
+      "plants": [
+        {
+          "id": "pink-blueberry-01",
+          "name": "Pink Blueberry #1",
+          "status": "Thriving",
+          "photos": ["04-blueberry-corner-blueberry-01.JPG"],
+          "hotspot": { "x": 30, "y": 45 },
+          "highlights": [
+            "The strong one — light blue pot, approximately 8.5 hours of sun.",
+            "Producing well with healthy, vigorous growth.",
+            "Pink blueberries ripen to a blush-pink color instead of deep blue."
+          ],
+          "care_notes": [
+            "Acidic soil is essential — pH 4.5–5.5.",
+            "Fertilize with acid-loving plant food monthly during growing season.",
+            "Keep consistently moist but not waterlogged."
+          ],
+          "personal_notes": "The reliable producer of the pair. Its extra sun exposure makes all the difference. The light blue pot suits it perfectly.",
+          "fun_fact": "Pink blueberries (like Pink Lemonade variety) are actually lower in anthocyanins than their blue cousins — the same pigments that make blueberries blue also make them antioxidant powerhouses."
+        },
+        {
+          "id": "pink-blueberry-02",
+          "name": "Pink Blueberry #2",
+          "status": "Recovering",
+          "photos": ["04-blueberry-corner-blueberry-02.JPG"],
+          "hotspot": { "x": 70, "y": 45 },
+          "highlights": [
+            "The comeback story — dark blue pot, treated for iron chlorosis.",
+            "Was showing yellowing leaves; chelated iron treatment underway.",
+            "Less sun than #1 but holding on and pushing new growth."
+          ],
+          "care_notes": [
+            "Continue chelated iron foliar spray every 2–3 weeks until new leaves green up.",
+            "Check soil pH — chlorosis is often a pH problem, not true iron deficiency.",
+            "Keep moist and watch for improvement in new leaf color."
+          ],
+          "personal_notes": "This one had a rough stretch with iron chlorosis — the classic yellowing between leaf veins that signals the plant can't absorb nutrients. Watching it bounce back is satisfying.",
+          "fun_fact": "Iron chlorosis in blueberries is rarely from lack of iron in the soil — it's usually because the soil pH is too high, locking up iron that's already there."
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "slug": "thailand-bed",
+      "name": "Thailand Bed",
+      "description": "A raised bed of Thai staples and companion plants — the spice corridor of the garden.",
+      "overview_photo": "05-thailand-bed-overview.JPG",
+      "plants": [
+        {
+          "id": "thai-basil-a",
+          "name": "Thai Basil A",
+          "status": "Recovering",
+          "photos": ["05-thailand-bed-thai-basil.JPG"],
+          "hotspot": { "x": 15, "y": 40 },
+          "highlights": [
+            "Flowered early — energy redirected from leaf production to seed.",
+            "Recovering after aggressive pinching to reset growth.",
+            "Compare with Thai Basil B in Zone 07, which is performing better."
+          ],
+          "care_notes": [
+            "Pinch flower buds as soon as they appear to maintain leaf production.",
+            "Consistent moisture — do not let it dry out completely.",
+            "Once fully recovered, harvest outer leaves regularly to encourage bushing."
+          ],
+          "personal_notes": "Went to flower too early — a reminder that basil needs constant monitoring. Using it as a learning comparison against Thai Basil B.",
+          "fun_fact": "Thai basil has a distinctly anise-clove flavor compared to sweet basil's more purely sweet profile — the difference comes from a higher concentration of estragole and eugenol compounds."
+        },
+        {
+          "id": "thai-chili-pepper",
+          "name": "Thai Chili Pepper",
+          "status": "Producing",
+          "photos": ["05-thailand-bed-thai-chili-pepper.JPG"],
+          "hotspot": { "x": 35, "y": 35 },
+          "highlights": [
+            "Prolific producer — these tiny chilies pack serious heat.",
+            "A staple of the Thailand Bed theme.",
+            "Peppers turn from green to red when fully ripe."
+          ],
+          "care_notes": [
+            "Water consistently — peppers stress easily from drought.",
+            "Harvest peppers when fully colored for best heat and flavor.",
+            "Light balanced fertilizer every few weeks during fruiting."
+          ],
+          "personal_notes": "One of the most satisfying producers in the garden. Small peppers, enormous flavor. Goes straight into cooking.",
+          "fun_fact": "Thai bird's eye chilies rank 50,000–100,000 on the Scoville scale — that's up to 40 times hotter than a jalapeño."
+        },
+        {
+          "id": "green-onions",
+          "name": "Green Onions",
+          "status": "Growing",
+          "photos": ["05-thailand-bed-green-onions.JPG"],
+          "hotspot": { "x": 52, "y": 45 },
+          "highlights": [
+            "Cut-and-come-again — harvest the tops and they regrow.",
+            "Essential in Thai cooking.",
+            "Minimal care, consistent reward."
+          ],
+          "care_notes": [
+            "Harvest by cutting 1–2 inches above the soil — leave roots intact.",
+            "Keep moist and in partial to full sun.",
+            "Replace when bulbs start to split or go woody."
+          ],
+          "personal_notes": "Low-effort, high-use. Snip them into every dish. The cut-and-regrow cycle is endlessly satisfying.",
+          "fun_fact": "Green onions regrow so reliably that you can root grocery store scallions in a glass of water and plant them directly in the ground — one purchase, endless harvests."
+        },
+        {
+          "id": "marigold-a",
+          "name": "Marigold A",
+          "status": "Blooming",
+          "photos": ["05-thailand-bed-marigold.JPG"],
+          "hotspot": { "x": 52, "y": 45 },
+          "highlights": [
+            "Pest control companion — deters aphids, whiteflies, and nematodes.",
+            "Bright orange blooms attract beneficial predatory insects.",
+            "One of several marigolds stationed throughout the garden."
+          ],
+          "care_notes": [
+            "Deadhead spent blooms to encourage continuous flowering.",
+            "Water at the base — wet foliage promotes botrytis.",
+            "No fertilizer needed; too much nitrogen reduces bloom."
+          ],
+          "personal_notes": "Marigolds are the garden's natural security system. Beautiful and functional. This one guards the Thailand Bed.",
+          "fun_fact": "Marigold roots secrete a chemical called alpha-terthienyl that kills root-knot nematodes in the soil — a pest-control effect that lasts even after the plant dies."
+        },
+        {
+          "id": "carrot-mix",
+          "name": "Carrot Mix",
+          "status": "Growing",
+          "photos": ["05-thailand-bed-carrot-seedlings.JPG"],
+          "hotspot": { "x": 75, "y": 45 },
+          "highlights": [
+            "Three-color variety mix — orange, purple, and yellow.",
+            "Target harvest: late July 2026.",
+            "Sown directly into the bed; patience required."
+          ],
+          "care_notes": [
+            "Keep soil consistently moist until germination and through root development.",
+            "Thin seedlings to 2–3 inches apart once 2 inches tall.",
+            "Harvest when shoulders are visible at soil surface — late July 2026."
+          ],
+          "personal_notes": "The slow build of the Thailand Bed. Carrots reward patience — you don't know what's happening underground until harvest day.",
+          "fun_fact": "Purple and yellow carrots were actually the original colors — orange carrots were selectively bred in the Netherlands in the 17th century, possibly to honor the Dutch royal House of Orange."
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "slug": "bed-1-companions",
+      "name": "Bed One Companions",
+      "description": "The pot cluster anchored by the Husky Red tomato — a mix of producers and strugglers.",
+      "overview_photo": "06-bed-1-companions-overview.JPG",
+      "plants": [
+        {
+          "id": "husky-red-cherry-tomato",
+          "name": "Husky Red Cherry Tomato",
+          "status": "Champion",
+          "photos": ["06-bed-1-companions-husky-red-cherry-tomato.JPG"],
+          "hotspot": { "x": 48, "y": 35 },
+          "highlights": [
+            "The garden's most prolific producer — hundreds of cherry tomatoes.",
+            "Lives in the purple pot at the center of Bed One.",
+            "Has thrown off multiple suckers that became new plants."
+          ],
+          "care_notes": [
+            "Water deeply and consistently — tomatoes hate drought stress.",
+            "Remove suckers (or propagate them) to direct energy to fruit.",
+            "Tomato-specific fertilizer every 2 weeks during fruiting."
+          ],
+          "personal_notes": "The Husky Red is the undisputed star of the garden. When people visit, this is the plant they reach for. Its suckers have been propagated into the Baby Tomato and Toddler Tomato.",
+          "fun_fact": "Cherry tomatoes are thought to be closer to the wild ancestral tomato than large beefsteak varieties — the original tomatoes domesticated in Mesoamerica were small, like a cherry."
+        },
+        {
+          "id": "baby-cherry-tomato",
+          "name": "Baby Cherry Tomato",
+          "status": "Growing",
+          "photos": ["06-bed-1-companions-baby-cherry-tomato.JPG"],
+          "hotspot": { "x": 38, "y": 78 },
+          "highlights": [
+            "Propagated from a sucker cut from the Husky Red.",
+            "Lives in a small nursery pot between the Husky Red and Poblano.",
+            "Still young — the newest tomato in the garden."
+          ],
+          "care_notes": [
+            "Keep moist as it establishes — small pots dry out fast.",
+            "Pot up when roots fill the nursery container.",
+            "Identical care to Husky Red once established."
+          ],
+          "personal_notes": "A living cutting from the Husky Red. There's something poetic about a plant growing its own offspring through a sucker. This one is the smallest of the three tomato generations.",
+          "fun_fact": "Tomato suckers are genetically identical to the parent plant — every Baby Cherry Tomato fruit will taste exactly like a Husky Red fruit."
+        },
+        {
+          "id": "collard-greens",
+          "name": "Collard Greens",
+          "status": "Struggling",
+          "photos": ["06-bed-1-companions-collard-greens.JPG"],
+          "hotspot": { "x": 78, "y": 65 },
+          "highlights": [
+            "In the black pot on the right side of the cluster.",
+            "Has faced heat stress and some pest pressure.",
+            "Still producing edible leaves but not thriving."
+          ],
+          "care_notes": [
+            "Water in the morning to reduce heat stress.",
+            "Check undersides of leaves for cabbage worms or aphids.",
+            "Consider shade cloth during peak summer heat."
+          ],
+          "personal_notes": "Collards are tough, but this one is having a hard summer. Keeping it going as a challenge and because the leaves are still usable.",
+          "fun_fact": "Collard greens have been cultivated for more than 2,000 years — they were eaten in ancient Greece and Rome and are one of the oldest members of the cabbage family."
+        },
+        {
+          "id": "poblano-pepper",
+          "name": "Poblano Pepper",
+          "status": "Producing",
+          "photos": ["06-bed-1-companions-poblano.JPG"],
+          "hotspot": { "x": 18, "y": 55 },
+          "highlights": [
+            "Lives in the pink/red pot on the left of the cluster.",
+            "Producing dark green poblanos — mild heat, great for roasting.",
+            "A kitchen staple in the garden's harvest rotation."
+          ],
+          "care_notes": [
+            "Water consistently — peppers need even moisture.",
+            "Harvest when peppers are dark green and firm (about 4–5 inches).",
+            "Can be left to ripen red for a sweeter, smokier flavor (dried = ancho)."
+          ],
+          "personal_notes": "Poblanos are one of the most kitchen-useful peppers in the garden. Roast them, stuff them, blister them — they're endlessly versatile.",
+          "fun_fact": "A dried red poblano is called an ancho chile — it's one of the most commonly used dried chiles in Mexican cooking, forming the base of many mole sauces."
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "slug": "basil-bed",
+      "name": "Basil Bed",
+      "description": "The garden's aromatic heart — multiple basil varieties, a standout pepper, and marigold sentinels.",
+      "overview_photo": "07-basil-bed-overview.JPG",
+      "plants": [
+        {
+          "id": "thai-basil-b",
+          "name": "Thai Basil B",
+          "status": "Thriving",
+          "photos": ["07-basil-bed-thai-basil.JPG"],
+          "hotspot": { "x": 48, "y": 20 },
+          "highlights": [
+            "The healthier of the two Thai basils — outperforming Thai Basil A in Zone 05.",
+            "Lush, glossy leaves with the characteristic anise-clove fragrance.",
+            "Has not flowered yet — still in full leaf production mode."
+          ],
+          "care_notes": [
+            "Pinch flower buds immediately when they appear.",
+            "Harvest outer leaves regularly to encourage branching.",
+            "Consistent moisture; does not tolerate drought."
+          ],
+          "personal_notes": "A living comparison to Thai Basil A. Same variety, different outcomes based on location and timing. This one got it right.",
+          "fun_fact": "In Thai cooking, Thai basil is added at the very end of cooking or used raw because its delicate anise flavor dissipates quickly with heat."
+        },
+        {
+          "id": "generic-basil-01",
+          "name": "Generic Basil #1",
+          "status": "Established",
+          "photos": ["07-basil-bed-generic-basil-01.JPG"],
+          "hotspot": { "x": 35, "y": 45 },
+          "highlights": [
+            "The oldest basil in the garden — a longtime resident.",
+            "Soft, large leaves — classic sweet basil profile.",
+            "Has been harvested many times and keeps producing."
+          ],
+          "care_notes": [
+            "Pinch flowers to extend productive life.",
+            "Harvest from the top down to encourage new growth.",
+            "May need to be replaced if it goes fully woody."
+          ],
+          "personal_notes": "The original. There's something satisfying about a plant that has been with you from nearly the beginning. This one has seen everything.",
+          "fun_fact": "Sweet basil's scientific name, Ocimum basilicum, comes from the Greek 'basileus,' meaning king — it was considered a royal herb in ancient Greece."
+        },
+        {
+          "id": "generic-basil-02",
+          "name": "Generic Basil #2",
+          "status": "Established",
+          "photos": ["07-basil-bed-generic-basil-02.JPG"],
+          "hotspot": { "x": 52, "y": 45 },
+          "highlights": [
+            "A longtime resident — second only to Generic Basil #1 in seniority.",
+            "Reliable producer of classic sweet basil leaves.",
+            "Fills out the basil bed alongside the other varieties."
+          ],
+          "care_notes": [
+            "Pinch flowers to extend productive life.",
+            "Harvest regularly to prevent bolting.",
+            "Water at the base — wet leaves promote fungal spots."
+          ],
+          "personal_notes": "The steady second basil. Not as storied as #1, but dependable and generous.",
+          "fun_fact": "Basil is extremely sensitive to cold — even a brief chill below 50°F can blacken the leaves within hours. It prefers temperatures above 60°F at all times."
+        },
+        {
+          "id": "pesto-perpetua-basil",
+          "name": "Pesto Perpetua Basil",
+          "status": "Thriving",
+          "photos": ["07-basil-bed-pesto-perpetua-basil.JPG"],
+          "hotspot": { "x": 72, "y": 50 },
+          "highlights": [
+            "The most visually striking basil in the garden — variegated green and white leaves.",
+            "A sterile hybrid that never flowers or sets seed.",
+            "Produces continuously because it puts no energy into reproduction."
+          ],
+          "care_notes": [
+            "No need to pinch flowers — it won't produce them.",
+            "Harvest freely; this variety is bred for continuous production.",
+            "Water consistently; variegated plants can be slightly more sensitive to drought."
+          ],
+          "personal_notes": "Pesto Perpetua is unlike any other basil in the garden. The variegated leaves make it look almost ornamental. And because it never flowers, it just keeps giving.",
+          "fun_fact": "Pesto Perpetua is a patented sterile hybrid — it can't be propagated from seed, only from cuttings. Every plant in existence is a clone of the original breeding cross."
+        },
+        {
+          "id": "sweet-red-pepper",
+          "name": "Sweet Red Pepper",
+          "status": "Producing",
+          "photos": ["07-basil-bed-sweet-red-pepper.JPG", "07-basil-bed-sweet-red-pepper-02.JPG"],
+          "hotspot": { "x": 20, "y": 25 },
+          "highlights": [
+            "Recently produced its first pepper — a milestone moment.",
+            "Sweet, no heat — a good counterbalance to the spicy peppers elsewhere.",
+            "Sits in the upper-left corner of the basil bed."
+          ],
+          "care_notes": [
+            "Water consistently — even moisture is key for pepper fruit set.",
+            "Let peppers fully ripen to red for maximum sweetness.",
+            "Balanced fertilizer every two weeks during fruiting."
+          ],
+          "personal_notes": "The moment a plant produces its first fruit is always special. This pepper's first appearance felt like a reward for patience.",
+          "fun_fact": "Red, yellow, and orange bell peppers are simply green peppers that have been allowed to fully ripen — all four colors come from the same plant."
+        },
+        {
+          "id": "marigold-b",
+          "name": "Marigold B",
+          "status": "Blooming",
+          "photos": ["07-basil-bed-marigold-01.JPG"],
+          "hotspot": { "x": 10, "y": 55 },
+          "highlights": [
+            "Left-side sentinel of the basil bed.",
+            "Pest deterrent for the surrounding basil plants.",
+            "Bright orange blooms attract beneficial insects."
+          ],
+          "care_notes": [
+            "Deadhead spent blooms regularly.",
+            "Water at base to prevent fungal issues.",
+            "No fertilizer needed."
+          ],
+          "personal_notes": "One of the marigold guardians stationed throughout the garden. Functional beauty.",
+          "fun_fact": "Marigolds have been used as a natural dye for centuries — their petals produce vibrant orange and yellow pigments used in fabric, food coloring, and even chicken feed to deepen yolk color."
+        },
+        {
+          "id": "marigold-c",
+          "name": "Marigold C",
+          "status": "Blooming",
+          "photos": ["07-basil-bed-marigold-02.JPG"],
+          "hotspot": { "x": 15, "y": 68 },
+          "highlights": [
+            "Second marigold sentinel in the basil bed.",
+            "Paired with Marigold B to provide broader pest deterrence.",
+            "Part of the garden-wide marigold pest control network."
+          ],
+          "care_notes": [
+            "Deadhead spent blooms regularly.",
+            "Water at base to prevent fungal issues.",
+            "No fertilizer needed."
+          ],
+          "personal_notes": "The basil bed has two marigolds on patrol. The more fragrant the neighbors, the fewer the pests.",
+          "fun_fact": "The strong scent of marigolds confuses and repels insects looking for host plants — they work by masking the smell of the plants you're trying to protect."
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "slug": "terracotta-row",
+      "name": "Terracotta Row",
+      "description": "A collection of pots on the iridescent tile table — herbs, peppers, and a California native.",
+      "overview_photo": "08-terracotta-row-overview.JPG",
+      "plants": [
+        {
+          "id": "california-sagebrush",
+          "name": "California Sagebrush",
+          "status": "Thriving",
+          "photos": ["08-terracotta-row-california-sagebrush.JPG"],
+          "hotspot": { "x": 12, "y": 70 },
+          "highlights": [
+            "Glen's favorite plant in the entire garden.",
+            "A California native with an intoxicating, wild-coast fragrance.",
+            "Silver-green foliage that smells like the California hills after rain."
+          ],
+          "care_notes": [
+            "Drought-tolerant — water sparingly, especially in summer.",
+            "Well-draining soil; does not tolerate root rot.",
+            "Light trim to shape; avoid cutting into old wood."
+          ],
+          "personal_notes": "This plant earns the title of favorite purely on scent. One brush of the leaves and you're standing on a hillside overlooking the Pacific. It smells like California itself.",
+          "fun_fact": "California sagebrush (Artemisia californica) is not a true sage — it's in the wormwood family. The evocative scent comes from aromatic oils that also help repel deer and other browsers."
+        },
+        {
+          "id": "sweet-banana-pepper",
+          "name": "Sweet Banana Pepper",
+          "status": "Producing",
+          "photos": ["08-terracotta-row-sweet-banana-pepper.JPG"],
+          "hotspot": { "x": 28, "y": 35 },
+          "highlights": [
+            "Long, curved yellow peppers — sweet with just a whisper of heat.",
+            "A reliable producer throughout the warm season.",
+            "Named for their shape and color, not any banana flavor."
+          ],
+          "care_notes": [
+            "Harvest when fully yellow for sweetest flavor.",
+            "Water consistently — uneven moisture causes blossom drop.",
+            "Balanced fertilizer every 2 weeks during fruiting."
+          ],
+          "personal_notes": "A crowd-pleaser. Easy to grow, easy to eat. The banana peppers disappear fast into salads, sandwiches, and pickled jars.",
+          "fun_fact": "Banana peppers are sometimes called yellow wax peppers — the waxy coating on their skin is what gives them that characteristic shine and helps them hold up well to pickling."
+        },
+        {
+          "id": "anaheim-chili",
+          "name": "Anaheim Chili",
+          "status": "Producing",
+          "photos": ["08-terracotta-row-anaheim-chili.JPG"],
+          "hotspot": { "x": 48, "y": 28 },
+          "highlights": [
+            "Mild green chili — the backbone of green chile sauces.",
+            "Large peppers, mild heat — great for roasting and stuffing.",
+            "Sitting at center-back of the terracotta table."
+          ],
+          "care_notes": [
+            "Water deeply and consistently.",
+            "Harvest when dark green and firm, about 6–8 inches long.",
+            "Can ripen to red — dried red Anaheims become California chiles."
+          ],
+          "personal_notes": "The workhorse of the pepper collection. Mild enough for everyone, flavorful enough to matter. Roasted Anaheims on everything.",
+          "fun_fact": "The Anaheim pepper was brought to California from New Mexico by farmer Emilio Ortega in 1894 — it's now one of the most commercially grown mild peppers in the US."
+        },
+        {
+          "id": "zonal-geranium",
+          "name": "Zonal Geranium",
+          "status": "Blooming",
+          "photos": ["08-terracotta-row-zonal-geranium.JPG"],
+          "hotspot": { "x": 45, "y": 60 },
+          "highlights": [
+            "Bright pink blooms that never seem to stop.",
+            "Sits center-front on the terracotta table — the color anchor.",
+            "Called 'zonal' for the darker band (zone) on its leaves."
+          ],
+          "care_notes": [
+            "Deadhead spent flower clusters to encourage continuous blooming.",
+            "Water when soil is dry to the touch — tolerates some drought.",
+            "Balanced fertilizer monthly during blooming season."
+          ],
+          "personal_notes": "A cheerful presence on the table. The bright pink against the terracotta pots is the visual identity of this whole section.",
+          "fun_fact": "Despite being called geraniums, zonal geraniums are technically Pelargoniums — true geraniums are a different genus of wildflowers. The confusion dates back to the 18th century and has stuck ever since."
+        },
+        {
+          "id": "hot-burrito-pepper",
+          "name": "Hot Burrito Pepper",
+          "status": "Producing",
+          "photos": ["08-terracotta-row-hot-burrito-pepper.JPG"],
+          "hotspot": { "x": 65, "y": 35 },
+          "highlights": [
+            "A strong performer with significant heat.",
+            "Sits back-right on the terracotta table.",
+            "Medium-sized peppers that punch well above their visual weight."
+          ],
+          "care_notes": [
+            "Water consistently — stressed plants produce hotter but fewer peppers.",
+            "Harvest when fully colored for best heat development.",
+            "Balanced fertilizer every 2 weeks during fruiting."
+          ],
+          "personal_notes": "Deceptively named. 'Burrito pepper' sounds friendly. This one is not. It delivers real heat and makes its presence known in whatever dish it enters.",
+          "fun_fact": "Capsaicin — the compound that makes peppers hot — is produced in the pepper as a defense against mammal predation. Birds, however, are immune to it and are the pepper's intended seed dispersers."
+        },
+        {
+          "id": "rosemary-terracotta",
+          "name": "Rosemary",
+          "status": "Slow Growing",
+          "photos": ["08-terracotta-row-rosemary.JPG"],
+          "hotspot": { "x": 78, "y": 40 },
+          "highlights": [
+            "In a terracotta pot — slower growth than the ground-planted street garden rosemaries.",
+            "Needs repotting — roots are likely hitting the pot walls.",
+            "Still fragrant and harvestable despite slow progress."
+          ],
+          "care_notes": [
+            "Repot into a larger container when roots begin circling.",
+            "Terracotta dries quickly — check moisture more often than other herbs.",
+            "Light trim after flowering to encourage new growth."
+          ],
+          "personal_notes": "A reminder that container rosemary needs more attention than in-ground rosemary. This one is patient but ready for more space.",
+          "fun_fact": "Rosemary can survive in containers for many years, but its growth rate is closely tied to pot size — a plant in a tight container will stay small almost indefinitely."
+        },
+        {
+          "id": "thyme",
+          "name": "Thyme",
+          "status": "Growing",
+          "photos": ["08-terracotta-row-thyme.JPG"],
+          "hotspot": { "x": 72, "y": 65 },
+          "highlights": [
+            "Slow but steady — lower right of the terracotta table.",
+            "Woody stems with tiny, intensely flavored leaves.",
+            "Pairs with rosemary in the herb section of the table."
+          ],
+          "care_notes": [
+            "Allow to dry out between waterings — thyme hates wet feet.",
+            "Light trim to prevent woodiness from taking over.",
+            "Harvest before flowering for the best flavor."
+          ],
+          "personal_notes": "Thyme is the quiet achiever. It doesn't demand attention, it just slowly becomes essential to every roasted thing that comes out of the kitchen.",
+          "fun_fact": "Ancient Egyptians used thyme in their embalming process — its powerful antimicrobial compounds (thymol in particular) were valued for preservation long before antibiotics existed."
+        },
+        {
+          "id": "mint",
+          "name": "Mint",
+          "status": "Growing",
+          "photos": ["08-terracotta-row-mint.JPG"],
+          "hotspot": { "x": 55, "y": 50 },
+          "highlights": [
+            "Added after the initial garden inventory — a newer addition to the terracotta table.",
+            "Kept in its own container to prevent it from taking over.",
+            "Cool, fresh fragrance that contrasts with the herbs around it."
+          ],
+          "care_notes": [
+            "Never plant mint in the ground — it spreads aggressively via underground runners.",
+            "Water consistently; mint prefers moist but not soggy soil.",
+            "Harvest frequently to prevent flowering and keep leaves tender."
+          ],
+          "personal_notes": "Mint was a deliberate late addition — kept in its own pot for very good reason. Once you've seen mint colonize a garden bed, you never make that mistake again.",
+          "fun_fact": "Mint spreads so aggressively underground that a single plant can colonize an entire garden bed within one season — gardeners often sink bottomless pots into the ground to contain it."
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "slug": "friends-of-terracotta-row",
+      "name": "Friends of Terracotta Row",
+      "description": "The cluster below and beside the terracotta table — floor-level producers and the seedling nursery.",
+      "overview_photo": "09-friends-of-terracotta-row-overview.JPG",
+      "plants": [
+        {
+          "id": "jalapeno",
+          "name": "Jalapeño",
+          "status": "Thriving",
+          "photos": ["09-friends-of-terracotta-row-jalapeno.JPG"],
+          "hotspot": { "x": 15, "y": 50 },
+          "highlights": [
+            "The OG — the very first plant in the entire garden.",
+            "Lives in the pink pot, far left of the cluster.",
+            "A founding member with seniority over every other plant."
+          ],
+          "care_notes": [
+            "Water consistently — this veteran deserves consistent care.",
+            "Harvest jalapeños when dark green and firm for classic flavor.",
+            "Let a few ripen to red for sweeter heat; dried = chipotles."
+          ],
+          "personal_notes": "This jalapeño started everything. Before there was a garden, there was this pink pot with this pepper plant. It is the first plant, the origin story, the elder.",
+          "fun_fact": "A dried and smoked jalapeño is called a chipotle — one of the most widely used ingredients in Mexican cuisine, all from letting a jalapeño fully ripen and then smoking it."
+        },
+        {
+          "id": "sweet-green-pepper",
+          "name": "Sweet Green Pepper",
+          "status": "Producing",
+          "photos": ["09-friends-of-terracotta-row-sweet-green-peppers.JPG"],
+          "hotspot": { "x": 42, "y": 68 },
+          "highlights": [
+            "The thirstiest plant in the garden — a five-gallon bucket that needs constant water.",
+            "Classic mild green bell pepper flavor.",
+            "A big plant for a big container."
+          ],
+          "care_notes": [
+            "Water daily in hot weather — the five-gallon bucket dries fast.",
+            "Balanced fertilizer every 2 weeks during fruiting.",
+            "Harvest when peppers are full-sized and firm; let some ripen to red."
+          ],
+          "personal_notes": "Nicknamed the garden's thirstiest plant for a reason. Skip watering once and it droops dramatically. Keep it happy and it keeps producing.",
+          "fun_fact": "Green bell peppers are just unripe red, yellow, or orange peppers — they're harvested early because of their slightly bitter, grassy flavor profile that many recipes specifically call for."
+        },
+        {
+          "id": "toddler-cherry-tomato",
+          "name": "Toddler Cherry Tomato",
+          "status": "Growing",
+          "photos": ["09-friends-of-terracotta-row-toddler-cherry-tomato.JPG"],
+          "hotspot": { "x": 55, "y": 65 },
+          "highlights": [
+            "Propagated from a Husky Red sucker — a second-generation tomato.",
+            "Lives in the galactic spray-paint pot.",
+            "Older and bigger than the Baby Cherry Tomato in Zone 06."
+          ],
+          "care_notes": [
+            "Water consistently — tomatoes in pots need reliable moisture.",
+            "Pot up if growth stalls and roots are visible at drainage holes.",
+            "Same care as Husky Red parent once fully established."
+          ],
+          "personal_notes": "The middle child of the tomato family tree. Between the original Husky Red and the tiny Baby in Zone 06, this one is the toddler — bigger, but not yet fully independent.",
+          "fun_fact": "Tomato plants can be propagated indefinitely from suckers — theoretically, you could grow a clone of a Husky Red tomato plant for decades from a single original plant."
+        },
+        {
+          "id": "persian-cucumber",
+          "name": "Persian Cucumber",
+          "status": "Climbing",
+          "photos": ["09-friends-of-terracotta-row-persian-cucumber.JPG"],
+          "hotspot": { "x": 82, "y": 45 },
+          "highlights": [
+            "Growing on an arch trellis in a sage green bowl.",
+            "Small, thin-skinned cucumbers with almost no seeds.",
+            "The only vining plant in the Friends of Terracotta Row."
+          ],
+          "care_notes": [
+            "Maintain moisture consistently — cucumbers are 95% water.",
+            "Train vines onto the trellis as they grow.",
+            "Harvest when 5–6 inches long before seeds develop."
+          ],
+          "personal_notes": "The Persian cucumber brings a vertical element to the floor cluster. Watching it climb the arch is one of the garden's daily satisfactions.",
+          "fun_fact": "Persian cucumbers have naturally thin, tender skin and almost no seeds — they were bred for eating whole without peeling, making them the snacking cucumber of choice."
+        },
+        {
+          "id": "seedling-nursery",
+          "name": "Seedling Nursery",
+          "status": "Active",
+          "photos": ["09-friends-of-terracotta-row-seedlings.JPG"],
+          "hotspot": { "x": 50, "y": 88 },
+          "highlights": [
+            "A propagation tray and cups under the terracotta table — the birthplace of future plants.",
+            "Where suckers are rooted, seeds are started, and new plants begin.",
+            "Not a single plant but a feature of the garden's ongoing life cycle."
+          ],
+          "care_notes": [
+            "Keep seedlings and cuttings consistently moist.",
+            "Protect from intense afternoon sun until established.",
+            "Label everything — memory is unreliable at the seedling stage."
+          ],
+          "personal_notes": "The nursery is where the garden talks to its future. Every sucker that becomes a plant, every seed that germinates — it passes through here first. It's the most optimistic corner of the garden.",
+          "fun_fact": "The practice of starting plants in a protected nursery before transplanting is thousands of years old — Roman gardeners used 'specularia,' early greenhouse structures made of transparent stone, to start seedlings in winter."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "slug": "nicas-succulent-garden",
+      "name": "Nica's Succulent Garden",
+      "description": "Dozens of propagated succulents built from neighborhood cuttings, pieces from Deer Park Monastery, and rescued fragments found on hikes. Every plant has its own story. Care notes coming soon from Nica.",
+      "overview_photo": "10-nicas-succulent-garden-overview.JPG",
+      "plants": []
+    }
+  ]
+}

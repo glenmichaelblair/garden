@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glen's Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="landing-page">
+
+  <header class="garden-header">
+    <h1>Glen's Garden</h1>
+    <p class="tagline">A living journal, one zone at a time.</p>
+  </header>
+
+  <main>
+    <div class="hero-wrapper">
+      <img id="hero-image" class="hero-image" src="" alt="Full garden view" />
+      <div id="zone-dots" class="zone-dots"></div>
+    </div>
+
+    <nav id="zone-grid" class="zone-grid" aria-label="Garden zones"></nav>
+  </main>
+
+  <script src="photo-config.js"></script>
+  <script src="app.js"></script>
+  <script>
+    async function initLanding() {
+      const data = await loadGardenData();
+
+      // Hero image
+      const heroImg = document.getElementById('hero-image');
+      heroImg.src = getPhotoUrl('01-full-garden-hero.JPG');
+
+      // Zone grid cards (skip zone 01 — it IS the hero)
+      const grid = document.getElementById('zone-grid');
+      data.zones.forEach(zone => {
+        if (zone.id === '01') return;
+        const card = document.createElement('a');
+        card.href = `zone.html?zone=${zone.id}`;
+        card.className = 'zone-card';
+        card.innerHTML = `
+          <div class="zone-card-img-wrap">
+            <img src="${getPhotoUrl(zone.overview_photo)}" alt="${zone.name}" loading="lazy" />
+          </div>
+          <div class="zone-card-info">
+            <span class="zone-number">Zone ${zone.id}</span>
+            <h2>${zone.name}</h2>
+            <p>${zone.description}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    initLanding();
+  </script>
+</body>
+</html>
