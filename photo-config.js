@@ -81,7 +81,7 @@ function getPhotoUrl(filename) {
   // Case-insensitive lookup to handle .jpg vs .JPG variations
   const id = PHOTO_IDS[filename] || PHOTO_IDS[filename.toUpperCase()] || PHOTO_IDS[filename.toLowerCase()];
   if (id) {
-    return `https://drive.google.com/uc?export=view&id=${id}`;
+    return `https://drive.google.com/thumbnail?id=${id}&sz=w1200`;
   }
   return makePlaceholder(filename);
 }
