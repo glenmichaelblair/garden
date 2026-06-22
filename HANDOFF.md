@@ -140,6 +140,45 @@ Or just keep using the live GitHub Pages URL.
 
 ---
 
+## Working on the road — new-machine setup
+
+Everything needed to edit, preview, and ship this project from another Mac.
+
+**1. Install the tools** (versions on the original machine, for reference: git 2.39, node v24, npm 11, python 3.9, gh 2.95, Claude Code 2.1):
+- Xcode Command Line Tools — `xcode-select --install` (gives `git` and `python3`)
+- Node.js v20+ — from nodejs.org or `brew install node` (needed by Claude Code and the JS check helper)
+- Claude Code — `npm install -g @anthropic-ai/claude-code`
+- GitHub CLI (optional but handy) — `brew install gh`
+
+**2. Sign in — each login is per-machine, so you redo these on the laptop:**
+- Claude Code: run `claude` and follow the prompt
+- GitHub (required to push): `gh auth login` → GitHub.com → HTTPS → browser. (A Personal Access Token or SSH key works too.)
+- Commit identity (if not set):
+  ```
+  git config --global user.name "Glen Blair"
+  git config --global user.email "glenmichaelblair@gmail.com"
+  ```
+- Google Drive: just log in at drive.google.com in a browser (only needed for photo changes)
+
+**3. Hand-carry these only if you'll run the Sheets/Drive helper scripts** (AirDrop them — keep them OUT of the public repo):
+- `garden_log.py` (the Google Sheets care logger)
+- `~/.config/loudness_watcher/credentials.json` (Google service-account key)
+
+You do **not** need either of these to edit the app, change content, or calibrate hotspots.
+
+**4. Add or swap a photo with just a browser + the repo** (no service account needed):
+- *Replace* an existing photo: in Drive, open the file → **Manage versions** → upload new version. The file ID is unchanged, so nothing in the code changes.
+- *Add* a new photo: upload to the Drive garden folder → Share → "Anyone with the link" → copy the link → the **file ID** is the long string between `/d/` and `/view` → paste it into `photo-config.js` under the matching filename.
+
+**5. The edit → check → ship loop:**
+```
+python3 -m http.server                 # preview at http://localhost:8000
+python3 -m json.tool garden-data.json >/dev/null   # validate JSON after data edits
+git add -A && git commit -m "…" && git push        # live on the site in ~30s
+```
+
+---
+
 ## Open / optional items
 
 - Hidden **"Calibrate" link** inside the app for easy phone access — not done yet.
