@@ -24,7 +24,10 @@
     .rotbar input[type=number] { width: 3.6rem; padding: .25rem; border-radius: 4px; border: 0; text-align: center; }
     .rotbar .deg { font-size: .8rem; min-width: 2.6rem; text-align: right; font-variant-numeric: tabular-nums; }
     .block { background: #fff; margin: 1rem; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
-    .block-title { padding: .6rem .9rem; font-weight: 600; font-size: .9rem; background: #ede6d6; }
+    .block-title { padding: .6rem .9rem; font-weight: 600; font-size: .9rem; background: #ede6d6; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+    .block-title .addnav { margin-left: auto; display: flex; gap: .35rem; align-items: center; }
+    .block-title select { font-size: .75rem; padding: .25rem; border-radius: 5px; border: 1px solid #c4baa6; max-width: 11rem; }
+    .block-title .addnav button { font-size: .75rem; padding: .3rem .55rem; border: 0; border-radius: 5px; background: #c47c2b; color: #fff; font-weight: 600; cursor: pointer; }
     .img-wrap { position: relative; width: 100%; touch-action: none; user-select: none; -webkit-user-select: none; }
     .img-wrap img { display: block; width: 100%; height: auto; }
     .dot { position: absolute; transform: translate(-50%, -50%); width: 32px; height: 32px; border-radius: 50%;
@@ -75,11 +78,11 @@
     const TYPE_COLOR = { landing:'#7a3aa0', plant:'#4a7a3a', sub_zone:'#2f6fb0', nav:'#c47c2b' };
     let DATA, selected = null;
     const allHandles = [];
+    const zoneById = id => DATA.zones.find(z => z.id === id);
 
     async function init() {
       DATA = await (await fetch('garden-data.json?_=' + Date.now())).json();
       const root = document.getElementById('sections');
-      const zoneById = id => DATA.zones.find(z => z.id === id);
 
       const hero = zoneById('01');
       const landingDots = DATA.zones.filter(z => z.landing_hotspot).map(z => ({
@@ -100,22 +103,32 @@
           const t = zoneById(n.target);
           dots.push({ ref: n.hotspot, type: 'nav', name: '→ ' + (n.label || (t ? t.name : n.target)),
             id: { kind: 'nav', zoneId: z.id, target: n.target }, navObj: n }); } });
-        if (dots.length) root.appendChild(block(`Zone ${z.id} — ${z.name}`, z.overview_photo, dots));
+        root.appendChild(block(`Zone ${z.id} — ${z.name}`, z.overview_photo, dots, z));
       });
     }
 
-    function block(title, photo, dots) {
+    function block(title, photo, dots, zone) {
       const el = document.createElement('div');
       el.className = 'block';
-      el.innerHTML = `<div class="block-title">${title}</div>
+      let addControl = '';
+      if (zone) {
+        const opts = ['<option value="__home__">↩ Home / Backyard (index.html)</option>']
+          .concat(DATA.zones
+            .filter(z => z.id !== zone.id)
+            .map(z => `<option value="${z.id}">${z.id} — ${z.name}</option>`))
+          .join('');
+        addControl = `<span class="addnav"><select>${opts}</select><button type="button">+ nav arrow</button></span>`;
+      }
+      el.innerHTML = `<div class="block-title"><span>${title}</span>${addControl}</div>
         <div class="hint">Drag a dot, or tap a dot then tap the photo to place it. Select a nav arrow to rotate it (dial up top).</div>
         <div class="img-wrap"><img src="${getPhotoUrl(photo)}" alt="${title}"></div>
         <table><thead><tr><th>#</th><th>Type</th><th>Name</th><th>X%</th><th>Y%</th></tr></thead><tbody></tbody></table>`;
       const wrap = el.querySelector('.img-wrap');
       const tbody = el.querySelector('tbody');
+      let count = 0;
 
-      dots.forEach((d, i) => {
-        const n = i + 1;
+      function makeDot(d) {
+        const n = ++count;
         const color = TYPE_COLOR[d.type];
 
         const dot = document.createElement('div');
@@ -154,7 +167,28 @@
         });
         xIn.addEventListener('input', () => { d.ref.x = clamp(+xIn.value); place(dot, d.ref); readout(h); });
         yIn.addEventListener('input', () => { d.ref.y = clamp(+yIn.value); place(dot, d.ref); readout(h); });
-      });
+        return h;
+      }
+
+      dots.forEach(makeDot);
+
+      if (zone) {
+        const sel = el.querySelector('.addnav select');
+        el.querySelector('.addnav button').addEventListener('click', () => {
+          const v = sel.value;
+          const nav = { target: v, angle: 0, hotspot: { x: 50, y: 50 } };
+          if (v === '__home__') { nav.target = '01'; nav.url = 'index.html'; nav.label = 'Backyard'; }
+          zone.nav_hotspots = zone.nav_hotspots || [];
+          zone.nav_hotspots.push(nav);
+          const t = zoneById(nav.target);
+          const h = makeDot({
+            ref: nav.hotspot, type: 'nav',
+            name: '→ ' + (nav.label || (t ? t.name : nav.target)),
+            id: { kind: 'nav', zoneId: zone.id, target: nav.target }, navObj: nav });
+          selectHandle(h);
+          el.querySelector('.img-wrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
 
       wrap.addEventListener('pointerdown', e => {
         if (e.target.closest('.dot')) return;
