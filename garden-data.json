@@ -202,6 +202,16 @@
           "personal_notes": "The outermost sentinels of the street garden, one on each flank. Among the toughest plants in the whole garden.",
           "fun_fact": "Despite the name, Texas Sage (Leucophyllum frutescens) is not a true sage — it's in the snapdragon family."
         }
+      ],
+      "nav_hotspots": [
+        {
+          "target": "02",
+          "angle": 0,
+          "hotspot": {
+            "x": 50,
+            "y": 50
+          }
+        }
       ]
     },
     {
@@ -1197,7 +1207,27 @@
       "description": "Dozens of propagated succulents built from neighborhood cuttings, pieces from Deer Park Monastery, and rescued fragments found on hikes. Every plant has its own story. Care notes coming soon from Nica.",
       "overview_photo": "10-nicas-succulent-garden-overview.JPG",
       "watering_note": "Succulents store water in their leaves — they need very little. Let the soil dry out completely between waterings. When in doubt, don't — overwatering kills succulents faster than drought.",
-      "plants": []
+      "plants": [],
+      "nav_hotspots": [
+        {
+          "target": "02",
+          "angle": 0,
+          "hotspot": {
+            "x": 50,
+            "y": 50
+          }
+        },
+        {
+          "target": "01",
+          "url": "index.html",
+          "label": "Backyard",
+          "angle": 0,
+          "hotspot": {
+            "x": 50,
+            "y": 65
+          }
+        }
+      ]
     }
   ]
 }

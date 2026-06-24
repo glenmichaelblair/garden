@@ -123,7 +123,7 @@
         const target = getZone(data, nav.target);
         const label = nav.label || (target ? target.name : nav.target);
         const a = document.createElement('a');
-        a.href = `zone.html?zone=${nav.target}`;
+        a.href = nav.url || `zone.html?zone=${nav.target}`;
         a.style.left = nav.hotspot.x + '%';
         a.style.top  = nav.hotspot.y + '%';
         if (nav.style === 'dot') {
