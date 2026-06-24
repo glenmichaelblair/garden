@@ -62,6 +62,12 @@
           ${plant.nickname ? `<span class="plant-nickname">a.k.a. &ldquo;${plant.nickname}&rdquo;</span>` : ''}
         </div>
 
+        ${plant.watering ? `
+        <section class="plant-section watering-note">
+          <h2>Watering</h2>
+          <p>${plant.watering}</p>
+        </section>` : ''}
+
         ${plant.highlights && plant.highlights.length ? `
         <section class="plant-section">
           <h2>Highlights</h2>

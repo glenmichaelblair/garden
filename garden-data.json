@@ -16,6 +16,7 @@
       "front_yard_order": 2,
       "description": "Two young fruit trees staking their claim in the front yard.",
       "overview_photo": "02-front-yard-trees-overview.JPG",
+      "watering_note": "These young trees need deep, slow watering — leave the hose running for 4–5 minutes to push moisture down to the roots. Every 2–3 days depending on heat. Deep and infrequent beats light and daily.",
       "plants": [
         {
           "id": "nectarine",
@@ -28,6 +29,7 @@
             "x": 22,
             "y": 44
           },
+          "watering": "Deep watering every 2–3 days in heat — leave the hose on 4–5 minutes. Slow and deep pushes roots down.",
           "highlights": [
             "Young tree in its first full season in the ground.",
             "Planted in the front yard to anchor the left side.",
@@ -52,6 +54,7 @@
             "x": 79,
             "y": 23
           },
+          "watering": "Deep watering every 2–3 days — same as the nectarine. Slow and deep. Citrus hates both drought and waterlogged roots.",
           "highlights": [
             "Working on its second orange crop.",
             "In the ground since February/March 2026.",
@@ -93,6 +96,7 @@
       "front_yard_order": 1,
       "description": "A drought-tolerant Mediterranean display flanking the Palo Verde. #1 = left of Palo Verde, #2 = right.",
       "overview_photo": "03-street-garden-overview.JPG",
+      "watering_note": "Drought-tolerant Mediterranean plants — less is more. Water deeply but only when soil is fully dry. Overwatering is the main threat here, not underwatering.",
       "plants": [
         {
           "id": "palo-verde",
@@ -106,6 +110,7 @@
             "x": 62,
             "y": 30
           },
+          "watering": "Drought-tolerant once established. Water deeply once every 1–2 weeks in summer; much less in cooler months.",
           "highlights": [
             "The structural anchor of the entire street garden.",
             "A California-friendly tree with brilliant yellow spring blooms.",
@@ -131,6 +136,7 @@
             "x": 3,
             "y": 71
           },
+          "watering": "Water only when soil is fully dry. Overwatering is the main risk — when in doubt, wait another day.",
           "highlights": [
             "Variety: Coast Smokey — a compact, upright cultivar.",
             "A matched pair — #1 left and #2 right of the Palo Verde.",
@@ -156,6 +162,7 @@
             "x": 28,
             "y": 59
           },
+          "watering": "Water only when soil is fully dry. Does not tolerate wet feet — excellent drainage is essential.",
           "highlights": [
             "Variety: Goodwin Creek — a long-blooming, heat-tolerant hybrid.",
             "A matched pair flanking the Palo Verde — left and right.",
@@ -181,6 +188,7 @@
             "x": 46,
             "y": 62
           },
+          "watering": "Extremely drought-tolerant — do not water on a schedule. Only water when the soil is bone dry.",
           "highlights": [
             "A matched pair on the outer flanks — left and right of the Palo Verde.",
             "Blooms explosively after summer humidity spikes.",
@@ -206,6 +214,7 @@
       },
       "description": "Two pink blueberry plants in matching teal pots — one a standout, one a comeback story.",
       "overview_photo": "04-blueberry-corner-overview.JPG",
+      "watering_note": "Both plants are in pots with trays. Check the tray before watering — if water is still pooling, let it dry out. Feel the soil an inch down and water only when it's dry.",
       "plants": [
         {
           "id": "pink-blueberry-01",
@@ -218,6 +227,7 @@
             "x": 22,
             "y": 56
           },
+          "watering": "Pot with tray — check the tray before watering. If water is still pooling, wait. Feel the soil an inch down; water when dry. Consistent moisture, never waterlogged.",
           "highlights": [
             "The strong one — light blue pot, approximately 8.5 hours of sun.",
             "Producing well with healthy, vigorous growth.",
@@ -242,6 +252,7 @@
             "x": 80,
             "y": 50
           },
+          "watering": "Pot with tray — check the tray before watering. Keep consistently moist while recovering. Even moisture supports the chelated iron treatment.",
           "highlights": [
             "The comeback story — dark blue pot, treated for iron chlorosis.",
             "Was showing yellowing leaves; chelated iron treatment underway.",
@@ -268,6 +279,7 @@
       },
       "description": "A raised bed of Thai staples and companion plants — the spice corridor of the garden.",
       "overview_photo": "05-thailand-bed-overview.JPG",
+      "watering_note": "Self-watering raised bed with moisture reserves, especially with mulch on top. Check the soil every few days rather than watering on a schedule. The carrot end of the bed tends to dry out faster — keep that topsoil moist.",
       "plants": [
         {
           "id": "thai-basil-a",
@@ -280,6 +292,7 @@
             "x": 21,
             "y": 48
           },
+          "watering": "Self-watering bed. Check soil every few days — don't let it dry out completely. Basil wilts fast under drought stress.",
           "highlights": [
             "Flowered early — energy redirected from leaf production to seed.",
             "Recovering after aggressive pinching to reset growth.",
@@ -304,6 +317,7 @@
             "x": 25,
             "y": 29
           },
+          "watering": "Self-watering bed. Check every few days — peppers stress easily from drought, especially during fruiting.",
           "highlights": [
             "Prolific producer — these tiny chilies pack serious heat.",
             "A staple of the Thailand Bed theme.",
@@ -328,6 +342,7 @@
             "x": 40,
             "y": 42
           },
+          "watering": "Self-watering bed. Keep moist — doesn't like to dry out. Low maintenance.",
           "highlights": [
             "Cut-and-come-again — harvest the tops and they regrow.",
             "Essential in Thai cooking.",
@@ -352,6 +367,7 @@
             "x": 56,
             "y": 41
           },
+          "watering": "Self-watering bed. Water at the base to avoid wet foliage. Low water needs.",
           "highlights": [
             "Pest control companion — deters aphids, whiteflies, and nematodes.",
             "Bright orange blooms attract beneficial predatory insects.",
@@ -376,6 +392,7 @@
             "x": 69,
             "y": 52
           },
+          "watering": "The carrot end of the bed dries out faster than the rest. Keep the topsoil consistently moist — carrots need even moisture through root development.",
           "highlights": [
             "Three-color variety mix — orange, purple, and yellow.",
             "Target harvest: late July 2026.",
@@ -423,6 +440,7 @@
       "name": "Bed One Companions",
       "description": "The pot cluster anchored by the Husky Red tomato — a mix of producers and strugglers.",
       "overview_photo": "06-bed-1-companions-overview.JPG",
+      "watering_note": "A mix of pots — some with trays, some without. Check each one individually. Tomatoes and any pot without a tray can take lots of water and may need it daily in heat. For tray pots, check if water is still pooling before refilling.",
       "plants": [
         {
           "id": "husky-red-cherry-tomato",
@@ -435,6 +453,7 @@
             "x": 45,
             "y": 38
           },
+          "watering": "Purple pot, no tray — water freely and generously. The star of the garden loves moisture and may need it every day in heat. Water deeply.",
           "highlights": [
             "The garden's most prolific producer — hundreds of cherry tomatoes.",
             "Lives in the purple pot at the center of Bed One.",
@@ -459,6 +478,7 @@
             "x": 33,
             "y": 80
           },
+          "watering": "Small nursery pot, no tray — small pots dry out fast. Check daily in heat. Keep consistently moist.",
           "highlights": [
             "Propagated from a sucker cut from the Husky Red.",
             "Lives in a small nursery pot between the Husky Red and Poblano.",
@@ -483,6 +503,7 @@
             "x": 79,
             "y": 69
           },
+          "watering": "Black pot — feel the soil before watering. Water in the morning to reduce heat stress.",
           "highlights": [
             "In the black pot on the right side of the cluster.",
             "Has faced heat stress and some pest pressure.",
@@ -507,6 +528,7 @@
             "x": 18,
             "y": 50
           },
+          "watering": "Pink pot — even moisture is key. Peppers drop blossoms when stressed by drought. Feel the soil before watering.",
           "highlights": [
             "Lives in the pink/red pot on the left of the cluster.",
             "Producing dark green poblanos — mild heat, great for roasting.",
@@ -532,6 +554,7 @@
       },
       "description": "The garden's aromatic heart — multiple basil varieties, a standout pepper, and marigold sentinels.",
       "overview_photo": "07-basil-bed-overview.JPG",
+      "watering_note": "Self-watering raised bed — the reserves hold a few days' worth of water, especially with the mulch. Feel the soil before watering rather than going on a schedule. The bed stays pretty even, but check more often during heat waves.",
       "plants": [
         {
           "id": "thai-basil-b",
@@ -544,6 +567,7 @@
             "x": 55,
             "y": 52
           },
+          "watering": "Self-watering bed. Check every few days — basil doesn't tolerate drought. Water at the base to protect the leaves.",
           "highlights": [
             "The healthier of the two Thai basils — outperforming Thai Basil A in Zone 05.",
             "Lush, glossy leaves with the characteristic anise-clove fragrance.",
@@ -568,6 +592,7 @@
             "x": 34,
             "y": 46
           },
+          "watering": "Self-watering bed. Keep moist — water at the base to prevent fungal spots on the leaves.",
           "highlights": [
             "The oldest basil in the garden — a longtime resident.",
             "Soft, large leaves — classic sweet basil profile.",
@@ -592,6 +617,7 @@
             "x": 56,
             "y": 32
           },
+          "watering": "Self-watering bed. Water at the base; keep consistently moist.",
           "highlights": [
             "A longtime resident — second only to Generic Basil #1 in seniority.",
             "Reliable producer of classic sweet basil leaves.",
@@ -616,6 +642,7 @@
             "x": 79,
             "y": 52
           },
+          "watering": "Self-watering bed. Slightly more drought-sensitive than other basils — check the soil regularly and don't let it dry out.",
           "highlights": [
             "The most visually striking basil in the garden — variegated green and white leaves.",
             "A sterile hybrid that never flowers or sets seed.",
@@ -641,6 +668,7 @@
             "x": 28,
             "y": 16
           },
+          "watering": "Self-watering bed. Even moisture is key for fruit set — check every few days. Peppers drop blossoms when stressed.",
           "highlights": [
             "Recently produced its first pepper — a milestone moment.",
             "Sweet, no heat — a good counterbalance to the spicy peppers elsewhere.",
@@ -665,6 +693,7 @@
             "x": 15,
             "y": 61
           },
+          "watering": "Self-watering bed. Water at the base to prevent fungal issues. Low water needs.",
           "highlights": [
             "Left-side sentinel of the basil bed.",
             "Pest deterrent for the surrounding basil plants.",
@@ -685,6 +714,7 @@
           "photos": [
             "07-basil-bed-marigold-02.JPG"
           ],
+          "watering": "Self-watering bed. Water at the base. Low water needs.",
           "highlights": [
             "Second marigold sentinel in the basil bed.",
             "Paired with Marigold B to provide broader pest deterrence.",
@@ -789,6 +819,7 @@
       "parent": "08",
       "description": "The pots on the iridescent tile table — herbs, peppers, and a California native.",
       "overview_photo": "08-terracotta-row-overview.JPG",
+      "watering_note": "Terracotta dries out quickly — that's what the mulch on top is for. Feel the soil on each pot individually; they dry at different rates. For any pot with a tray, check if water is still pooling before refilling.",
       "plants": [
         {
           "id": "california-sagebrush",
@@ -801,6 +832,7 @@
             "x": 14,
             "y": 71
           },
+          "watering": "Terracotta pot — but this one likes to dry out between waterings. Drought-tolerant; does not need water every day. Let the soil go fully dry before watering.",
           "highlights": [
             "Glen's favorite plant in the entire garden.",
             "A California native with an intoxicating, wild-coast fragrance.",
@@ -825,6 +857,7 @@
             "x": 26,
             "y": 37
           },
+          "watering": "Terracotta pot — check daily in heat. Even moisture prevents blossom drop. Feel the soil before watering.",
           "highlights": [
             "Long, curved yellow peppers — sweet with just a whisper of heat.",
             "A reliable producer throughout the warm season.",
@@ -849,6 +882,7 @@
             "x": 49,
             "y": 26
           },
+          "watering": "Terracotta pot — check daily in heat. Water deeply and consistently; don't let it dry out during fruiting.",
           "highlights": [
             "Mild green chili — the backbone of green chile sauces.",
             "Large peppers, mild heat — great for roasting and stuffing.",
@@ -873,6 +907,7 @@
             "x": 48,
             "y": 63
           },
+          "watering": "Terracotta pot — water when the soil is dry to the touch. Tolerates brief drought but flowers best with regular moisture.",
           "highlights": [
             "Bright pink blooms that never seem to stop.",
             "Sits center-front on the terracotta table — the color anchor.",
@@ -897,6 +932,7 @@
             "x": 70,
             "y": 32
           },
+          "watering": "Terracotta pot — check daily in heat. Consistent moisture keeps production up and prevents blossom drop.",
           "highlights": [
             "A strong performer with significant heat.",
             "Sits back-right on the terracotta table.",
@@ -921,6 +957,7 @@
             "x": 87,
             "y": 52
           },
+          "watering": "Terracotta dries fast — check more often than other herbs on the table. But rosemary still prefers to dry out between waterings, so feel the soil before adding water.",
           "highlights": [
             "In a terracotta pot — slower growth than the ground-planted street garden rosemaries.",
             "Needs repotting — roots are likely hitting the pot walls.",
@@ -945,6 +982,7 @@
             "x": 63,
             "y": 67
           },
+          "watering": "Terracotta pot — allow to dry out completely between waterings. Hates wet feet. Less water than anything else on the table.",
           "highlights": [
             "Slow but steady — lower right of the terracotta table.",
             "Woody stems with tiny, intensely flavored leaves.",
@@ -969,6 +1007,7 @@
             "x": 77,
             "y": 71
           },
+          "watering": "Terracotta pot — mint prefers moist soil, so check more often than the herbs around it. Don't let it dry out.",
           "highlights": [
             "Added after the initial garden inventory — a newer addition to the terracotta table.",
             "Kept in its own container to prevent it from taking over.",
@@ -991,6 +1030,7 @@
       "parent": "08",
       "description": "The floor-level cluster beside and below the table — the OG jalapeño, the thirstiest pepper, a propagated tomato, and a climbing cucumber.",
       "overview_photo": "09-friends-of-terracotta-row-overview.JPG",
+      "watering_note": "A mix of pots, some with trays and some without. Check each one individually. The sweet green pepper (five-gallon bucket) is the thirstiest plant in the whole garden and may need water every day in heat.",
       "plants": [
         {
           "id": "jalapeno",
@@ -1003,6 +1043,7 @@
             "x": 15,
             "y": 42
           },
+          "watering": "Pink pot — feel the soil before watering. Consistent moisture; peppers don't like drought stress. This veteran deserves reliable care.",
           "highlights": [
             "The OG — the very first plant in the entire garden.",
             "Lives in the pink pot, far left of the cluster.",
@@ -1027,6 +1068,7 @@
             "x": 46,
             "y": 62
           },
+          "watering": "Five-gallon bucket, no tray — the thirstiest plant in the garden. Check daily in heat. Skip a watering and it will droop dramatically. Water deeply.",
           "highlights": [
             "The thirstiest plant in the garden — a five-gallon bucket that needs constant water.",
             "Classic mild green bell pepper flavor.",
@@ -1051,6 +1093,7 @@
             "x": 62,
             "y": 74
           },
+          "watering": "Galactic spray-paint pot — tomatoes need reliable moisture. Check daily in heat. Water deeply when the soil is dry.",
           "highlights": [
             "Propagated from a Husky Red sucker — a second-generation tomato.",
             "Lives in the galactic spray-paint pot.",
@@ -1075,6 +1118,7 @@
             "x": 90,
             "y": 66
           },
+          "watering": "Sage green bowl — cucumbers are 95% water and need consistent moisture. Check daily. Never let it dry out completely.",
           "highlights": [
             "Growing on an arch trellis in a sage green bowl.",
             "Small, thin-skinned cucumbers with almost no seeds.",
@@ -1115,6 +1159,7 @@
       "parent": "08",
       "description": "The propagation nursery under the table — where suckers root, seeds wake up, and the next generation of the garden begins.",
       "overview_photo": "09-friends-of-terracotta-row-seedlings.JPG",
+      "watering_note": "Seedlings and cuttings have shallow roots and dry out fast. Keep consistently moist — check twice a day in intense heat. Moist but not soggy.",
       "plants": [
         {
           "id": "seedling-nursery",
@@ -1127,6 +1172,7 @@
             "x": 50,
             "y": 55
           },
+          "watering": "Shallow roots dry out fast — keep consistently moist. Check twice a day in intense heat. Moist but never soggy.",
           "highlights": [
             "A propagation tray and cups under the terracotta table — the birthplace of future plants.",
             "Where suckers are rooted, seeds are started, and new plants begin.",
@@ -1150,6 +1196,7 @@
       "front_yard_order": 3,
       "description": "Dozens of propagated succulents built from neighborhood cuttings, pieces from Deer Park Monastery, and rescued fragments found on hikes. Every plant has its own story. Care notes coming soon from Nica.",
       "overview_photo": "10-nicas-succulent-garden-overview.JPG",
+      "watering_note": "Succulents store water in their leaves — they need very little. Let the soil dry out completely between waterings. When in doubt, don't — overwatering kills succulents faster than drought.",
       "plants": []
     }
   ]
