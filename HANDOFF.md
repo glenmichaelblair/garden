@@ -40,9 +40,12 @@ Top level: `{ "zones": [ ... ] }`.
 - `sub_zones[]` — `{ name, target (zone id), hotspot {x,y} }`; turns a zone into a hub (see Terracotta)
 - `nav_hotspots[]` — links to other sections (see below)
 
+- `watering_note` (optional) — a short zone-level watering blurb shown in a blue 💧 callout between the description and the photo on `zone.html` (e.g. self-watering bed reserves, terracotta drying fast).
+
 **Plant fields:**
 - `id`, `name`, `status`, `photos[]`, `hotspot {x,y}`, `highlights[]`, `care_notes[]`, `personal_notes`, `fun_fact`
 - `nickname` (optional) — shown in the profile's stats line (e.g. Palo Verde = "Paola")
+- `watering` (optional) — a short per-plant watering line shown in a blue callout near the top of `plant.html`, right after the status badge (pot type, tray check, frequency).
 - A plant with **no `hotspot`** still appears in the list, just without a dot on the photo (e.g. `marigold-c` in Zone 07).
 
 **`nav_hotspots[]` entry:**
@@ -51,6 +54,7 @@ Top level: `{ "zones": [ ... ] }`.
 - `style: "dot"` — renders a simple labeled dot. **Omit** `style` for the default **arrow**.
 - `angle` — arrows only: rotation in degrees. **0 = right, 90 = down, 180 = left, 270 = up.**
 - `label` (optional) — overrides the link text (defaults to the destination zone's name)
+- `url` (optional) — overrides the link destination entirely (e.g. `"index.html"` to point back to the backyard hero landing). Without it, the arrow links to `zone.html?zone=<target>`.
 
 All coordinates are **percent of the natural image** (`x` from left, `y` from top), applied with `transform: translate(-50%,-50%)`. Images are always `width:100%; height:auto` (never cropped) so percentages stay valid.
 
@@ -104,7 +108,8 @@ This is how every dot/arrow got positioned. Works great on a phone.
 1. Open `/calibrate.html`. It shows **every image** with its hotspots as numbered, color-coded dots (landing / plant / area / nav).
 2. **Position:** drag a dot, **or** tap a dot then tap the photo, **or** type into the X%/Y% boxes.
 3. **Rotate (arrows only):** tap a nav arrow → a rotation dial appears in the header (← ↑ → ↓ buttons + slider + number box). The arrow spins live.
-4. **Get changes out:** tap **📋 Copy coordinates** and paste the result to a Claude session — it applies them to `garden-data.json` with a script. Or **⬇ Download JSON** for the whole file.
+4. **Create a nav arrow (no code needed):** each zone block has a destination dropdown + **+ nav arrow** button in its title bar. Pick a target zone (or **↩ Home / Backyard**, which links to `index.html`) and click — a new arrow drops in at center, auto-selected so the rotation dial is ready. Drag/rotate it into place.
+5. **Get changes out:** tap **📋 Copy coordinates** and paste the result to a Claude session — it applies them to `garden-data.json` with a script. Or **⬇ Download JSON** for the whole file. **Note:** Copy-coordinates only carries position + angle, so for arrows you *created* (which may have `url`/`label`), use **⬇ Download JSON** to capture them.
 
 Copy format (what you paste back):
 ```
@@ -148,14 +153,21 @@ Everything needed to edit, preview, and ship this project from another Mac.
 - Xcode Command Line Tools — `xcode-select --install` (gives `git` and `python3`)
 - Node.js v20+ — from nodejs.org or `brew install node` (needed by Claude Code and the JS check helper)
 - Claude Code — `npm install -g @anthropic-ai/claude-code`
-- GitHub CLI (optional but handy) — `brew install gh`
+- GitHub CLI (optional but handy) — `brew install gh`. **No Homebrew?** Download the binary straight from GitHub releases (no admin password needed):
+  ```
+  cd /tmp
+  VER=$(curl -s https://api.github.com/repos/cli/cli/releases/latest | grep '"tag_name"' | head -1 | sed -E 's/.*"v?([^"]+)".*/\1/')
+  curl -sL -o gh.zip "https://github.com/cli/cli/releases/download/v${VER}/gh_${VER}_macOS_arm64.zip"   # use _amd64 on Intel Macs
+  unzip -oq gh.zip && mkdir -p "$HOME/.local/bin" && cp gh_*/bin/gh "$HOME/.local/bin/gh" && chmod +x "$HOME/.local/bin/gh"
+  echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"   # then open a fresh Terminal
+  ```
 
 **2. Sign in — each login is per-machine, so you redo these on the laptop:**
 - Claude Code: run `claude` and follow the prompt
-- GitHub (required to push): `gh auth login` → GitHub.com → HTTPS → browser. (A Personal Access Token or SSH key works too.)
+- GitHub (required to push): `gh auth login` → GitHub.com → HTTPS → **login with a web browser** → copy the one-time code, approve in the browser. (A Personal Access Token or SSH key works too.) Once done, `git push` just works.
 - Commit identity (if not set):
   ```
-  git config --global user.name "Glen Blair"
+  git config --global user.name "Glen Michael Blair"
   git config --global user.email "glenmichaelblair@gmail.com"
   ```
 - Google Drive: just log in at drive.google.com in a browser (only needed for photo changes)
